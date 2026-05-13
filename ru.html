@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дом Байлуншань · Руководство по домашнему фитнесу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #faf6ee;
+    --paper: #ffffff;
+    --ink: #2a2620;
+    --ink-soft: #5a514a;
+    --ink-light: #8a7f73;
+    --accent: #8b3a2f;
+    --accent-soft: #b9695a;
+    --line: #e5dccc;
+    --highlight: #f0e2c4;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 16px;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  .layout { display: grid; grid-template-columns: 280px 1fr; max-width: 1280px; margin: 0 auto; min-height: 100vh; }
+
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid var(--line);
+    padding: 48px 32px;
+    position: sticky; top: 0;
+    height: 100vh; overflow-y: auto;
+  }
+  .brand { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--accent); }
+  .brand-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.4; margin-bottom: 8px; }
+  .brand-sub { font-size: 12px; color: var(--ink-light); letter-spacing: 0.5px; }
+  .toc { list-style: none; }
+  .toc-label { font-size: 11px; font-weight: 600; color: var(--ink-light); letter-spacing: 2px; margin-bottom: 16px; text-transform: uppercase; }
+  .toc li { margin-bottom: 4px; }
+  .toc a {
+    display: flex; align-items: baseline; gap: 12px;
+    padding: 10px 12px;
+    color: var(--ink-soft); text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+  }
+  .toc a:hover { background: #faf6ee; color: var(--ink); }
+  .toc a.active { background: #faf6ee; color: var(--accent); border-left-color: var(--accent); font-weight: 500; }
+  .toc-num { font-family: var(--serif); font-size: 13px; color: var(--ink-light); min-width: 20px; }
+  .toc a.active .toc-num { color: var(--accent); }
+
+  .main { padding: 40px 80px 120px; max-width: 780px; }
+
+  .hero { margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+  .hero-eyebrow { font-size: 11px; color: var(--accent); letter-spacing: 4px; margin-bottom: 14px; font-weight: 600; text-transform: uppercase; }
+  .hero h1 { font-family: var(--serif); font-size: 40px; font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 14px; letter-spacing: -0.5px; }
+  .hero-lead { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 20px; font-style: italic; }
+  .hero-meta { display: flex; gap: 24px; font-size: 12px; color: var(--ink-light); }
+  .hero-meta span::before { content: "·"; margin-right: 24px; color: var(--line); }
+  .hero-meta span:first-child::before { display: none; }
+
+  section { margin-bottom: 96px; scroll-margin-top: 32px; }
+  .chapter-num { font-family: var(--serif); font-size: 12px; color: var(--accent); letter-spacing: 6px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; }
+  h2 { font-family: var(--serif); font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 32px; letter-spacing: -0.3px; }
+  h3 { font-family: var(--serif); font-size: 22px; font-weight: 600; line-height: 1.4; color: var(--ink); margin-top: 40px; margin-bottom: 16px; }
+  h4 { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--accent); margin-top: 28px; margin-bottom: 12px; }
+  p { margin-bottom: 18px; color: var(--ink-soft); }
+  strong { color: var(--ink); font-weight: 600; }
+  em { font-style: normal; background: linear-gradient(transparent 60%, var(--highlight) 60%); padding: 0 2px; }
+  ul, ol { margin-bottom: 20px; padding-left: 24px; }
+  li { margin-bottom: 10px; color: var(--ink-soft); }
+
+  .chapter-illust { width: 100%; margin: 0 0 32px 0; border-radius: 6px; overflow: hidden; background: #faf6ee; border: 1px solid var(--line); aspect-ratio: 16 / 6; display: flex; align-items: center; justify-content: center; }
+  .chapter-illust svg { width: 100%; height: 100%; display: block; }
+
+  .muscle-map { width: 100%; margin: 24px 0 40px; background: #faf6ee; border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
+  .muscle-map svg { width: 100%; height: auto; display: block; max-width: 480px; margin: 0 auto; }
+  .muscle-map-caption { text-align: center; font-size: 13px; color: var(--ink-light); margin-top: 16px; font-family: var(--serif); font-style: italic; }
+
+  .callout { background: #faf6ee; border-left: 3px solid var(--accent); padding: 20px 24px; margin: 24px 0; border-radius: 0 4px 4px 0; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout-title { font-weight: 600; color: var(--accent); font-size: 12px; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
+
+  .myth { background: #faf6ee; padding: 28px 32px; margin-bottom: 24px; border-radius: 6px; border: 1px solid var(--line); }
+  .myth-q { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 12px; display: flex; align-items: baseline; gap: 12px; font-style: italic; }
+  .myth-q::before { content: "МИФ"; font-size: 10px; background: var(--accent); color: white; padding: 3px 8px; border-radius: 2px; letter-spacing: 1.5px; font-weight: 500; flex-shrink: 0; font-style: normal; }
+  .myth-a { font-size: 15px; color: var(--ink-soft); line-height: 1.75; }
+  .myth-a strong { color: var(--accent); }
+
+  .benefits { display: grid; gap: 20px; margin: 32px 0; }
+  .benefit { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .benefit:last-child { border-bottom: none; }
+  .benefit-num { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .benefit-title { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .benefit-desc { font-size: 15px; color: var(--ink-soft); line-height: 1.7; }
+
+  .muscle { background: #faf6ee; padding: 28px 32px; margin-bottom: 20px; border-radius: 6px; border: 1px solid var(--line); }
+  .muscle-name { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .muscle-tag { font-size: 11px; color: var(--accent); letter-spacing: 1.5px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; }
+  .muscle dl { display: grid; grid-template-columns: 110px 1fr; gap: 12px 16px; font-size: 15px; }
+  .muscle dt { color: var(--ink-light); font-weight: 500; }
+  .muscle dd { color: var(--ink-soft); }
+
+  .move { background: #faf6ee; margin-bottom: 32px; border-radius: 6px; border: 1px solid var(--line); overflow: hidden; }
+  .move-gif { background: #faf6ee; aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; color: var(--ink-light); font-size: 14px; border-bottom: 1px solid var(--line); overflow: hidden; position: relative; }
+  .move-gif img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .move-gif.placeholder {
+    background-image:
+      linear-gradient(45deg, #ffffff 25%, transparent 25%),
+      linear-gradient(-45deg, #ffffff 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #ffffff 75%),
+      linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+  .move-gif-label { background: #ffffff; padding: 8px 16px; border-radius: 4px; border: 1px dashed var(--line); font-family: var(--serif); color: var(--ink-light); font-style: italic; }
+  .move-content { padding: 24px 28px; }
+  .move-name { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .move-target { font-size: 11px; color: var(--accent); letter-spacing: 1.5px; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; }
+  .move-points { list-style: none; padding-left: 0; margin-bottom: 16px; }
+  .move-points li { padding-left: 24px; position: relative; font-size: 15px; margin-bottom: 8px; }
+  .move-points li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .move-warn { background: #fdf4ee; padding: 12px 16px; border-radius: 4px; font-size: 14px; color: var(--ink-soft); border-left: 3px solid var(--accent-soft); }
+  .move-warn strong { color: var(--accent); }
+
+  .plan-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; background: #faf6ee; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+  .plan-table th { background: #f0e7d4; color: var(--ink); padding: 14px 12px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 1px; border-bottom: 2px solid var(--line); text-transform: uppercase; }
+  .plan-table td { padding: 14px 12px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
+  .plan-table tr:last-child td { border-bottom: none; }
+  .plan-table .week { font-family: var(--serif); font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+  .qa { border-bottom: 1px solid var(--line); padding: 24px 0; }
+  .qa:last-child { border-bottom: none; }
+  .qa-q { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 12px; display: flex; gap: 12px; font-style: italic; }
+  .qa-q::before { content: "Q"; font-family: var(--serif); color: var(--accent); font-weight: 700; flex-shrink: 0; font-style: normal; }
+  .qa-a { padding-left: 28px; color: var(--ink-soft); font-size: 15px; }
+
+  .stat { display: inline-block; font-family: var(--serif); color: var(--accent); font-weight: 700; font-size: 1.1em; }
+
+  footer { margin-top: 96px; padding-top: 40px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-light); font-size: 13px; }
+  footer p { color: var(--ink-light); margin-bottom: 8px; }
+
+  /* 语言切换器 */
+  .lang-switcher { position: fixed; top: 16px; right: 16px; z-index: 100; display: flex; gap: 2px; background: #ffffff; border: 1px solid var(--line); border-radius: 4px; padding: 4px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); }
+  .lang-switcher a { text-decoration: none; color: var(--ink-soft); font-size: 12px; padding: 6px 10px; border-radius: 3px; transition: all 0.15s; font-family: var(--sans); letter-spacing: 0.5px; }
+  .lang-switcher a:hover { background: #faf6ee; color: var(--ink); }
+  .lang-switcher a.active { background: var(--accent); color: #ffffff; font-weight: 500; }
+
+  .menu-toggle { display: none; position: fixed; top: 16px; left: 16px; z-index: 100; background: #ffffff; border: 1px solid var(--line); border-radius: 4px; padding: 10px 14px; cursor: pointer; font-size: 14px; color: var(--ink); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); font-family: var(--sans); }
+  .menu-toggle:hover { background: #faf6ee; }
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: 90; }
+  .overlay.active { display: block; }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: fixed; top: 0; left: 0; width: 280px; height: 100vh; z-index: 95; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08); }
+    .sidebar.active { transform: translateX(0); }
+    .menu-toggle { display: block; }
+    .main { padding: 64px 24px 80px; max-width: 100%; }
+    .hero h1 { font-size: 30px; }
+    .hero-lead { font-size: 16px; }
+    h2 { font-size: 26px; }
+    h3 { font-size: 19px; }
+    body { font-size: 15px; }
+    .myth, .muscle, .move-content { padding: 20px; }
+    .muscle dl { grid-template-columns: 100px 1fr; font-size: 14px; }
+    .plan-table { font-size: 13px; }
+    .plan-table th, .plan-table td { padding: 10px 8px; }
+  }
+
+  @media (max-width: 480px) {
+    .main { padding: 56px 20px 60px; }
+    .hero h1 { font-size: 26px; }
+    h2 { font-size: 23px; }
+    section { margin-bottom: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="lang-switcher">
+  <a href="index.html">中</a>
+  <a href="en.html">EN</a>
+  <a href="ru.html" class="active">RU</a>
+</nav>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-title">Дом Байлуншань</div>
+      <div class="brand-sub">Руководство по домашнему фитнесу</div>
+    </div>
+    <div class="toc-label">Содержание</div>
+    <ul class="toc">
+      <li><a href="#ch1" data-section="ch1"><span class="toc-num">01</span>Почему сейчас</a></li>
+      <li><a href="#ch2" data-section="ch2"><span class="toc-num">02</span>Пять мифов</a></li>
+      <li><a href="#ch3" data-section="ch3"><span class="toc-num">03</span>Семь преимуществ</a></li>
+      <li><a href="#ch4" data-section="ch4"><span class="toc-num">04</span>Разминка</a></li>
+      <li><a href="#ch5" data-section="ch5"><span class="toc-num">05</span>Четыре группы мышц</a></li>
+      <li><a href="#ch6" data-section="ch6"><span class="toc-num">06</span>Домашний зал</a></li>
+      <li><a href="#ch7" data-section="ch7"><span class="toc-num">07</span>Упражнения</a></li>
+      <li><a href="#ch8" data-section="ch8"><span class="toc-num">08</span>Растяжка после</a></li>
+      <li><a href="#ch9" data-section="ch9"><span class="toc-num">09</span>План на 12 недель</a></li>
+      <li><a href="#ch10" data-section="ch10"><span class="toc-num">10</span>Питание</a></li>
+      <li><a href="#ch11" data-section="ch11"><span class="toc-num">11</span>Вопросы и ответы</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+
+    <header class="hero">
+      <div class="hero-eyebrow">Дом Байлуншань · Домашний фитнес</div>
+      <h1>54 — самое время начать</h1>
+      <p class="hero-lead">Почему это лучший момент, чтобы начать силовые тренировки, и как делать это безопасно и эффективно дома.</p>
+      <div class="hero-meta">
+        <span>Для начинающих</span>
+        <span>Домашний зал</span>
+        <span>Постепенно</span>
+      </div>
+    </header>
+
+    <section id="ch1">
+      <div class="chapter-num">Глава Первая</div>
+      <h2>Почему именно сейчас</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="curveGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b9695a" stop-opacity="0.3"/><stop offset="1" stop-color="#b9695a" stop-opacity="0"/></linearGradient></defs>
+          <g stroke="#d8cdb9" stroke-width="0.5" opacity="0.5"><line x1="80" y1="60" x2="760" y2="60"/><line x1="80" y1="120" x2="760" y2="120"/><line x1="80" y1="180" x2="760" y2="180"/><line x1="80" y1="240" x2="760" y2="240"/></g>
+          <line x1="80" y1="240" x2="760" y2="240" stroke="#5a514a" stroke-width="1.5"/>
+          <line x1="80" y1="40" x2="80" y2="240" stroke="#5a514a" stroke-width="1.5"/>
+          <path d="M 110 80 Q 250 90 380 130 T 720 220" fill="none" stroke="#8a7f73" stroke-width="2" stroke-dasharray="6 4"/>
+          <path d="M 110 80 Q 250 90 380 130 T 720 220 L 720 240 L 110 240 Z" fill="url(#curveGrad)" opacity="0.3"/>
+          <path d="M 110 80 Q 250 85 380 95 T 720 130" fill="none" stroke="#8b3a2f" stroke-width="3"/>
+          <text x="80" y="30" font-family="Lora, serif" font-size="13" fill="#5a514a">Мышцы / Плотность кости</text>
+          <text x="690" y="265" font-family="Lora, serif" font-size="13" fill="#5a514a">Возраст</text>
+          <text x="100" y="255" font-family="Inter, sans-serif" font-size="11" fill="#8a7f73">30</text>
+          <text x="240" y="255" font-family="Inter, sans-serif" font-size="11" fill="#8a7f73">40</text>
+          <text x="380" y="255" font-family="Inter, sans-serif" font-size="11" fill="#8a7f73">50</text>
+          <text x="520" y="255" font-family="Inter, sans-serif" font-size="11" fill="#8a7f73">60</text>
+          <text x="660" y="255" font-family="Inter, sans-serif" font-size="11" fill="#8a7f73">70</text>
+          <circle cx="380" cy="130" r="6" fill="#8b3a2f"/>
+          <text x="395" y="125" font-family="Lora, serif" font-size="14" fill="#8b3a2f" font-weight="700">Сейчас · 54 года</text>
+          <text x="395" y="142" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Переломный момент</text>
+          <g transform="translate(540, 60)">
+            <line x1="0" y1="0" x2="20" y2="0" stroke="#8b3a2f" stroke-width="3"/>
+            <text x="26" y="4" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">С тренировками</text>
+            <line x1="0" y1="20" x2="20" y2="20" stroke="#8a7f73" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="26" y="24" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Естественный спад</text>
+          </g>
+        </svg>
+      </div>
+
+      <p>Многие думают, что фитнес — для молодых. На самом деле наоборот: <strong>54 года — один из лучших возрастов, чтобы начать силовые тренировки</strong>. Есть три причины.</p>
+
+      <h3>Первая — потеря мышц ускоряется</h3>
+      <p>Мышечная масса начинает естественно снижаться после 30 лет. Исследования показывают: после 30 теряется <span class="stat">3–8%</span> мышечной массы каждые 10 лет, и темп ускоряется после 50. Без активных тренировок к 70 годам потеря может превысить <span class="stat">30%</span>.</p>
+      <p>От мышечной массы зависит, сможете ли вы сами подниматься по лестнице, нести тяжёлое, встать после падения. <em>Это основа качества жизни в старости</em>.</p>
+
+      <h3>Вторая — у женщин снижается плотность костей</h3>
+      <p>В период перименопаузы и менопаузы (примерно 45–55 лет) падение эстрогена приводит к резкому снижению плотности костей. Без внешней стимуляции в этот период риск остеопороза стремительно растёт.</p>
+      <p><strong>Силовые тренировки — один из наиболее научно подтверждённых немедикаментозных способов стимулировать восстановление плотности костей</strong>, гораздо эффективнее, чем одни лишь препараты кальция.</p>
+
+      <h3>Третья — способность к восстановлению ещё высокая</h3>
+      <p>Тело в 54 года, пусть и не такое крепкое, как в молодости, всё ещё прекрасно восстанавливается и адаптируется. Исследования показывают, что даже в <span class="stat">90 лет</span> уже через <span class="stat">8 недель</span> структурированных тренировок мышечная сила значительно растёт.</p>
+      <p>Начать в 54 — не просто эффективно, результаты будут впечатляющими. <strong>Чем раньше начнёте, тем больше сложного процента за следующие тридцать лет</strong>.</p>
+
+      <div class="callout">
+        <div class="callout-title">Главная идея</div>
+        <p>Мышцы и плотность костей — как банковский счёт. После 30 каждый год происходит автоматическое списание. Если не делать вкладов, к 70 годам счёт пуст. <strong>Начать вклады в 54 — самое время, и проценты высокие</strong>.</p>
+      </div>
+    </section>
+
+    <section id="ch2">
+      <div class="chapter-num">Глава Вторая</div>
+      <h2>Пять распространённых мифов</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.4">
+            <ellipse cx="160" cy="150" rx="100" ry="60" fill="none" stroke="#8a7f73" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <ellipse cx="400" cy="150" rx="100" ry="60" fill="none" stroke="#8a7f73" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <ellipse cx="640" cy="150" rx="100" ry="60" fill="none" stroke="#8a7f73" stroke-width="1.5" stroke-dasharray="4 4"/>
+          </g>
+          <text x="160" y="135" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8a7f73" font-style="italic">"Стану накачанной"</text>
+          <text x="160" y="160" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8a7f73" font-style="italic">"Болят колени"</text>
+          <text x="160" y="185" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8a7f73" font-style="italic">"Поздно начинать"</text>
+          <text x="400" y="155" text-anchor="middle" font-family="Lora, serif" font-size="40" fill="#8b3a2f" font-weight="700">⟶</text>
+          <text x="640" y="135" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#2a2620">Стройность</text>
+          <text x="640" y="160" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#2a2620">Защита суставов</text>
+          <text x="640" y="185" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#2a2620">Большой эффект</text>
+          <text x="160" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8a7f73" letter-spacing="2">МИФ</text>
+          <text x="640" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8b3a2f" letter-spacing="2" font-weight="600">ПРАВДА</text>
+        </svg>
+      </div>
+
+      <p>Перед началом разберёмся с самыми частыми сомнениями. Эти заблуждения отпугнули слишком многих людей, которым тренировки могли бы помочь.</p>
+
+      <div class="myth">
+        <div class="myth-q">"Я стану накачанной"</div>
+        <div class="myth-a">Уровень эстрогена у женщин естественно ограничивает рост мышечной массы. После 50 эстроген снижается ещё сильнее — женщине набрать большую мышечную массу сложнее, чем молодому мужчине. <strong>Обычные тренировки дают подтянутые линии и форму, а не объём</strong>. Тело культуристок требует экстремальных диет, десятилетий интенсивных тренировок и иногда фармакологии — это совсем другое, чем повседневный фитнес.</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"Будут болеть колени и спина"</div>
+        <div class="myth-a">Всё наоборот — <strong>болят как раз у тех, кто не тренируется</strong>. Когда квадрицепсы и ягодицы вокруг колена атрофируются, удар идёт прямо на хрящ. Сильные мышцы — естественные амортизаторы сустава. Корпус и спина — встроенный корсет позвоночника. Условие — <em>правильная техника и постепенность</em>, чему и посвящено это руководство.</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"Ходьбы и танцев достаточно"</div>
+        <div class="myth-a">Недостаточно. <strong>Кардио ≠ силовые тренировки</strong>. Ходьба и танцы поддерживают сердце и лёгкие, улучшают настроение, но <em>не сохраняют мышечную массу и существенно не повышают плотность костей</em>. Функции разные, нужны оба вида. Идеальный план для пожилых: кардио + силовые + гибкость — ничего нельзя пропустить.</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"Уже поздно начинать"</div>
+        <div class="myth-a">Не поздно. Многочисленные исследования показывают: даже <strong>90-летние</strong> через несколько недель структурированных тренировок заметно прибавляют в силе. 54 года — не "поздно", а <strong>самое время начинать</strong>. Способность тела восстанавливаться ещё высокая, и закреплённая привычка приносит пользу следующие тридцать лет.</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"Нужен настоящий зал"</div>
+        <div class="myth-a">Не нужен. Главный принцип силовых тренировок — <strong>прогрессирующая нагрузка</strong>, постепенное увеличение сопротивления для адаптации мышц, а не атмосфера зала. Домашнего зала с <em>гантелями, штангой и блочным тренажёром</em> полностью достаточно для всей мышечной работы, которая вам понадобится в 70 и 80 лет. Сложное оборудование нужно только профессиональным спортсменам.</div>
+      </div>
+    </section>
+
+    <section id="ch3">
+      <div class="chapter-num">Глава Третья</div>
+      <h2>Семь преимуществ силовых тренировок</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="400" cy="150" r="50" fill="#8b3a2f"/>
+          <text x="400" y="146" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#fbf7ef" font-weight="700">Силовые</text>
+          <text x="400" y="164" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#fbf7ef" font-weight="700">тренировки</text>
+          <g font-family="Inter, sans-serif" font-size="10" fill="#2a2620" text-anchor="middle">
+            <line x1="400" y1="100" x2="400" y2="55" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="400" cy="40" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="400" y="38">Защита</text>
+            <text x="400" y="50">от падений</text>
+
+            <line x1="443" y1="125" x2="500" y2="90" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="525" cy="80" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="525" y="78">Кости</text>
+            <text x="525" y="90">крепче</text>
+
+            <line x1="450" y1="150" x2="510" y2="150" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="540" cy="150" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="540" y="148">Сохр.</text>
+            <text x="540" y="160">мышц</text>
+
+            <line x1="443" y1="175" x2="500" y2="210" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="525" cy="220" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="525" y="218">Обмен</text>
+            <text x="525" y="230">веществ</text>
+
+            <line x1="357" y1="175" x2="300" y2="210" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="275" cy="220" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="275" y="218">Здоровье</text>
+            <text x="275" y="230">мозга</text>
+
+            <line x1="350" y1="150" x2="290" y2="150" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="260" cy="150" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="260" y="148">Лучше</text>
+            <text x="260" y="160">сон</text>
+
+            <line x1="357" y1="125" x2="300" y2="90" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="275" cy="80" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="275" y="78">Само-</text>
+            <text x="275" y="90">стоят.</text>
+          </g>
+          <text x="680" y="50" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8a7f73" letter-spacing="2">СЕМЬ ПЛЮСОВ</text>
+        </svg>
+      </div>
+
+      <p>Силовые тренировки для пожилых — это гораздо больше, чем эстетика или похудение. Это медицински подтверждённая инвестиция в качество жизни.</p>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit-num">01</div>
+          <div>
+            <div class="benefit-title">Резко снижается риск падений</div>
+            <div class="benefit-desc">Смертность пожилых в течение года после перелома шейки бедра достигает 20–30%. Сильные мышцы ног, устойчивый корпус, быстрая реакция — всё это прямые результаты силовых тренировок и самая эффективная профилактика падений.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-num">02</div>
+          <div>
+            <div class="benefit-title">Повышение плотности костей, защита от остеопороза</div>
+            <div class="benefit-desc">Упражнения с нагрузкой создают механическое давление на кости, напрямую стимулируя костные клетки. На сегодня это единственный неаптечный метод, доказанно обращающий потерю плотности костей — критически важно для женщин в постменопаузе.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-num">03</div>
+          <div>
+            <div class="benefit-title">Защита от потери мышц</div>
+            <div class="benefit-desc">Возрастная потеря мышечной массы (саркопения) напрямую влияет на самостоятельность. Тренировки сохраняют и даже наращивают мышцы — в 70 и 80 лет вы сможете сами вставать, ходить и нести вещи.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-num">04</div>
+          <div>
+            <div class="benefit-title">Улучшение обмена веществ</div>
+            <div class="benefit-desc">Мышцы — крупнейшее "хранилище глюкозы" в теле. Больше мышц — выше чувствительность к инсулину и значительно ниже риск диабета 2 типа. Улучшаются давление, липиды, состояние сердечно-сосудистой системы.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-num">05</div>
+          <div>
+            <div class="benefit-title">Защита когнитивных функций, снижение риска деменции</div>
+            <div class="benefit-desc">Силовые тренировки стимулируют выработку BDNF (нейротрофического фактора мозга), напрямую связанного со снижением риска деменции. Исследования показывают сильную связь между силой ног и когнитивной функцией в старости — <em>сила в ногах и ясность ума связаны</em>.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-num">06</div>
+          <div>
+            <div class="benefit-title">Лучший сон, настроение и энергия</div>
+            <div class="benefit-desc">Регулярные тренировки — естественный антидепрессант и средство от тревоги. Бессонница, раздражительность и подавленность перименопаузы заметно улучшаются с тренировками. Повседневная энергия растёт ощутимо.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-num">07</div>
+          <div>
+            <div class="benefit-title">Самостоятельная жизнь</div>
+            <div class="benefit-desc">Это сумма всех преимуществ. В 74 года самой везти свой чемодан по Киото, проходить 20 000 шагов в день без усталости. В 78 — гулять по каналу Отару в снегу. В 80 — самой вставать, готовить, выходить на улицу. <strong>Тело больше не ограничивает</strong> — вот в чём настоящая суть пенсии.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ch4">
+      <div class="chapter-num">Глава Четвёртая</div>
+      <h2>Разминка перед тренировкой</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <line x1="80" y1="150" x2="720" y2="150" stroke="#e5dccc" stroke-width="2"/>
+          <circle cx="150" cy="150" r="38" fill="#ffffff" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="150" y="146" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8b3a2f" font-weight="700">Разогр.</text>
+          <text x="150" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5a514a">3-5 мин</text>
+          <text x="150" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Поднять пульс</text>
+          <circle cx="320" cy="150" r="38" fill="#ffffff" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="320" y="146" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8b3a2f" font-weight="700">Суставы</text>
+          <text x="320" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5a514a">5 мин</text>
+          <text x="320" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Круги в суставах</text>
+          <circle cx="490" cy="150" r="42" fill="#8b3a2f" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="490" y="144" text-anchor="middle" font-family="Lora, serif" font-size="11" fill="#ffffff" font-weight="700">Лучшая</text>
+          <text x="490" y="158" text-anchor="middle" font-family="Lora, serif" font-size="11" fill="#ffffff" font-weight="700">растяжка</text>
+          <text x="490" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8b3a2f" font-weight="600">Всё тело</text>
+          <circle cx="660" cy="150" r="38" fill="#ffffff" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="660" y="146" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#8b3a2f" font-weight="700">Активация</text>
+          <text x="660" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5a514a">3-5 мин</text>
+          <text x="660" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Пробудить мышцы</text>
+          <text x="150" y="90" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#8a7f73">Шаг 1</text>
+          <text x="320" y="90" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#8a7f73">Шаг 2</text>
+          <text x="490" y="90" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#8a7f73">Шаг 3</text>
+          <text x="660" y="90" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#8a7f73">Шаг 4</text>
+          <text x="400" y="40" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8b3a2f" letter-spacing="3" font-weight="600">РАЗМИНКА · 10–13 МИНУТ</text>
+          <path d="M 195 150 L 278 150" stroke="#b9695a" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 365 150 L 444 150" stroke="#b9695a" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 537 150 L 618 150" stroke="#b9695a" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+          <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#b9695a"/></marker></defs>
+        </svg>
+      </div>
+
+      <p>Разминка — не "необязательная прелюдия", это часть тренировки. Особенно после 50: <strong>от того, разогрелись ли вы и насколько хорошо, напрямую зависит риск травмы и качество тренировки</strong>.</p>
+
+      <h3>Зачем нужна разминка</h3>
+
+      <h4>① Будит мышцы</h4>
+      <p>После ночи или утра за столом мышцы "холодные", волокна жёсткие. Сразу брать тяжёлый вес — как давить газ зимой на холодном двигателе: повреждение неминуемо. Разогрев повышает температуру мышц на 1–2 градуса, увеличивает эластичность, резко снижает риск травмы.</p>
+
+      <h4>② "Смазывает" суставы</h4>
+      <p>В суставах есть синовиальная жидкость — нечто вроде смазки в механизме. После долгого сидения её становится мало, суставы сухие. Сразу приседать или жать тяжёлое — это шлифовать хрящ всухую. Круговые движения в разминке восстанавливают приток жидкости.</p>
+
+      <h4>③ Плавно вводит сердце в работу</h4>
+      <p>После 50 сердечно-сосудистая система реагирует на резкую нагрузку медленнее, чем в молодости. Разминка плавно поднимает пульс с покоя (60–70) до рабочего (100–120), даёт сердцу буфер и <strong>предотвращает скачок давления</strong> — особенно важно для пожилых.</p>
+
+      <h4>④ Связывает мозг и мышцы</h4>
+      <p>Силовая работа — это не только мышечное усилие, это команды нервной системы. Лёгкие разминочные подходы говорят мозгу: "Сейчас будет это движение, открой командный канал". Тогда техника точнее, усилие стабильнее, меньше компенсаторных травм.</p>
+
+      <h3>Разминка за 10–13 минут</h3>
+      <p>Разминка состоит из четырёх шагов. Делайте все четыре перед каждой тренировкой.</p>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Шаг 1 GIF · gifs/warmup-1.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">Шаг 1 · Общий разогрев</div>
+          <div class="move-target">3–5 мин · Поднять пульс и температуру тела</div>
+          <ul class="move-points">
+            <li>Ходьба на месте, постепенно ускоряясь</li>
+            <li>Прыжки "звезда" низкой ударности (ноги не отрываются от пола)</li>
+            <li>Медленные "альпинисты" стоя (взмахи рук, подъёмы коленей)</li>
+          </ul>
+          <div class="move-warn"><strong>Ориентир:</strong> Лёгкая испарина, но без одышки. Это и есть правильно.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Шаг 2 GIF · gifs/warmup-2.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">Шаг 2 · Динамическая растяжка + мобильность суставов</div>
+          <div class="move-target">5 мин · "Смазать" суставы</div>
+          <ul class="move-points">
+            <li>Круги плечами (по 10 в каждую сторону)</li>
+            <li>Круги тазом (по 10 в каждую сторону)</li>
+            <li>"Кошка-корова" (мобильность позвоночника, 8–10 раз)</li>
+            <li>Выпад с поворотом (по 6 на сторону)</li>
+            <li>Большие круги руками (по 10 в каждую сторону)</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Динамичные ритмичные движения, не статичная растяжка. Статика — после тренировки.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Лучшая растяжка GIF · gifs/worlds-greatest-stretch.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">Шаг 3 · Лучшая растяжка в мире (World's Greatest Stretch)</div>
+          <div class="move-target">2–3 мин · Одно движение активирует всё тело</div>
+          <p style="font-size: 15px; color: var(--ink-soft); margin-bottom: 14px;">Это упражнение называют "лучшей растяжкой", потому что <strong>одно движение одновременно прорабатывает тазобедренные суставы, грудь, плечи, позвоночник и голеностопы</strong> — все пять основных суставных зон — и активирует главные мышцы. Самое выгодное по соотношению пользы и времени.</p>
+          <ul class="move-points">
+            <li>Из положения стоя сделайте большой выпад правой ногой вперёд</li>
+            <li>Поставьте левую руку на пол с внутренней стороны правой стопы</li>
+            <li>Поднимите правую руку вверх, разворачивая корпус и раскрывая грудь вправо</li>
+            <li>Взгляд за правой рукой. Почувствуйте растяжение в груди, плечах, бёдрах</li>
+            <li>Опустите правую руку, вернитесь в стойку, поменяйте сторону</li>
+            <li>По 5–6 раз на каждую сторону</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Движение медленное, дыхание ровное. На повороте не задерживайте дыхание. При проблемах с коленями — заднее колено на полу.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Шаг 4 GIF · gifs/warmup-4.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">Шаг 4 · Активация</div>
+          <div class="move-target">3–5 мин · Пробудить целевые мышцы</div>
+          <ul class="move-points">
+            <li>День ног → 10–15 приседаний без веса</li>
+            <li>День груди → 10–15 разведений с резинкой</li>
+            <li>День спины → 10–15 имитаций тяги без веса</li>
+            <li>По 1–2 подхода с минимальной нагрузкой</li>
+          </ul>
+          <div class="move-warn"><strong>Ориентир:</strong> Пусть целевые мышцы "поздороваются" — рабочие подходы пойдут плавнее и стабильнее.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ch5">
+      <div class="chapter-num">Глава Пятая</div>
+      <h2>Четыре основные группы мышц</h2>
+
+      <p>Перед изучением упражнений ознакомьтесь с "картой мышц" тела. <strong>Знать, что тренируете, — значит знать, ради чего тренируете</strong>.</p>
+
+      <p>В теле сотни мышц, но для пожилых главное — <em>четыре основные группы</em>. На них приходится более 70% всей мышечной массы, и от них зависит ежедневная функциональность. Тренируйте их хорошо, и мелкие мышцы получат пользу заодно.</p>
+
+      <div class="muscle-map">
+        <svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="bodyGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fbf7ef"/><stop offset="1" stop-color="#ede4d3"/></linearGradient></defs>
+          <g transform="translate(50, 30)">
+            <ellipse cx="100" cy="35" rx="22" ry="26" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 88 58 L 88 70 Q 100 75 112 70 L 112 58" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 70 75 Q 60 80 55 95 L 50 130 Q 50 160 55 200 Q 60 240 65 270 L 75 280 L 125 280 L 135 270 Q 140 240 145 200 Q 150 160 150 130 L 145 95 Q 140 80 130 75 Q 115 78 100 78 Q 85 78 70 75 Z" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 55 95 Q 40 105 35 135 Q 32 170 35 200 Q 38 215 40 230" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 55 130 Q 45 160 42 200 Q 40 220 38 232" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 145 95 Q 160 105 165 135 Q 168 170 165 200 Q 162 215 160 230" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 145 130 Q 155 160 158 200 Q 160 220 162 232" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 75 280 Q 70 320 72 360 L 75 420 L 88 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 99 380 L 96 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 125 280 Q 130 320 128 360 L 125 420 L 112 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 101 380 L 104 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 75 90 Q 90 88 100 92 Q 110 88 125 90 Q 130 110 125 130 Q 110 135 100 132 Q 90 135 75 130 Q 70 110 75 90 Z" fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <ellipse cx="60" cy="95" rx="12" ry="14" fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <ellipse cx="140" cy="95" rx="12" ry="14" fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <path d="M 78 145 Q 100 142 122 145 Q 125 175 122 210 Q 100 215 78 210 Q 75 175 78 145 Z" fill="#d4a574" opacity="0.6" stroke="#a87a4b" stroke-width="1"/>
+            <line x1="100" y1="145" x2="100" y2="212" stroke="#a87a4b" stroke-width="0.8" opacity="0.6"/>
+            <line x1="80" y1="165" x2="120" y2="165" stroke="#a87a4b" stroke-width="0.8" opacity="0.6"/>
+            <line x1="80" y1="185" x2="120" y2="185" stroke="#a87a4b" stroke-width="0.8" opacity="0.6"/>
+            <path d="M 75 285 Q 68 320 72 360 L 78 410 Q 85 405 90 400 L 95 370 Q 98 320 96 285 Z" fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+            <path d="M 105 285 Q 102 320 104 370 L 110 400 Q 115 405 122 410 L 128 360 Q 132 320 125 285 Z" fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+            <text x="100" y="500" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#5a514a" font-weight="600">СПЕРЕДИ</text>
+          </g>
+          <g transform="translate(350, 30)">
+            <ellipse cx="100" cy="35" rx="22" ry="26" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 88 58 L 88 70 Q 100 75 112 70 L 112 58" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 70 75 Q 60 80 55 95 L 50 130 Q 50 160 55 200 Q 60 240 65 270 L 75 280 L 125 280 L 135 270 Q 140 240 145 200 Q 150 160 150 130 L 145 95 Q 140 80 130 75 Q 115 78 100 78 Q 85 78 70 75 Z" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 55 95 Q 40 105 35 135 Q 32 170 35 200 Q 38 215 40 230" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 55 130 Q 45 160 42 200 Q 40 220 38 232" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 145 95 Q 160 105 165 135 Q 168 170 165 200 Q 162 215 160 230" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 145 130 Q 155 160 158 200 Q 160 220 162 232" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 75 280 Q 70 320 72 360 L 75 420 L 88 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 99 380 L 96 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 125 280 Q 130 320 128 360 L 125 420 L 112 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 101 380 L 104 460" fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 80 78 Q 100 85 120 78 L 130 110 Q 100 115 70 110 Z" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <path d="M 65 115 Q 100 120 135 115 L 140 175 Q 130 195 100 200 Q 70 195 60 175 Z" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <ellipse cx="60" cy="100" rx="11" ry="13" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <ellipse cx="140" cy="100" rx="11" ry="13" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <path d="M 70 245 Q 100 240 130 245 Q 135 275 130 290 L 100 295 L 70 290 Q 65 275 70 245 Z" fill="#5a8a6f" opacity="0.6" stroke="#3d6b54" stroke-width="1"/>
+            <path d="M 75 295 Q 70 330 75 370 L 80 400 Q 88 395 92 390 L 96 360 Q 98 320 95 295 Z" fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+            <path d="M 105 295 Q 102 320 104 360 L 108 390 Q 112 395 120 400 L 125 370 Q 130 330 125 295 Z" fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+            <text x="100" y="500" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#5a514a" font-weight="600">СЗАДИ</text>
+          </g>
+          <g transform="translate(258, 110)">
+            <rect x="0" y="0" width="14" height="14" fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <text x="20" y="11" font-family="Inter, sans-serif" font-size="11" fill="#2a2620" font-weight="600">Грудь · Плечи</text>
+            <rect x="0" y="50" width="14" height="14" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <text x="20" y="61" font-family="Inter, sans-serif" font-size="11" fill="#2a2620" font-weight="600">Спина</text>
+            <rect x="0" y="100" width="14" height="14" fill="#d4a574" opacity="0.6" stroke="#a87a4b" stroke-width="1"/>
+            <text x="20" y="111" font-family="Inter, sans-serif" font-size="11" fill="#2a2620" font-weight="600">Корпус</text>
+            <rect x="0" y="150" width="14" height="14" fill="#5a8a6f" opacity="0.6" stroke="#3d6b54" stroke-width="1"/>
+            <text x="20" y="161" font-family="Inter, sans-serif" font-size="11" fill="#2a2620" font-weight="600">Ноги · Ягодицы</text>
+            <text x="50" y="220" text-anchor="middle" font-family="Lora, serif" font-size="10" fill="#8a7f73" letter-spacing="2">ЧЕТЫРЕ ГРУППЫ МЫШЦ</text>
+          </g>
+        </svg>
+        <div class="muscle-map-caption">Четыре основные группы мышц · Более 70% всей мышечной массы</div>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">① Ноги</div>
+        <div class="muscle-tag">Ягодичные · Квадрицепс · Бицепс бедра</div>
+        <dl>
+          <dt>Расположение</dt><dd>Ягодицы, передняя и задняя поверхность бёдер</dd>
+          <dt>Функция</dt><dd>Стоять, ходить, подниматься по лестнице, приседать, держать равновесие</dd>
+          <dt>Если не тренировать</dt><dd>После 30 ноги теряют массу быстрее всего. Слабые ноги в 70 — не подняться по лестнице, не встать с дивана, не встать после падения.</dd>
+          <dt>Зачем нужны</dt><dd><strong>Напрямую связаны с "пройти 20 000 шагов без усталости". Сильные ноги — большой мир.</strong></dd>
+          <dt>Основные движения</dt><dd>Приседания, становая тяга, выпады</dd>
+        </dl>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">② Спина</div>
+        <div class="muscle-tag">Широчайшие · Трапеция · Ромбовидные</div>
+        <dl>
+          <dt>Расположение</dt><dd>Вся спина, от плеч до поясницы</dd>
+          <dt>Функция</dt><dd>Устойчивость позвоночника, прямая осанка, тянущие движения, защита спины</dd>
+          <dt>Если не тренировать</dt><dd>Сутулость, опущенные плечи, хронические боли в спине — самые частые проблемы осанки у пожилых женщин</dd>
+          <dt>Зачем нужны</dt><dd><strong>Прямая осанка, отсутствие болей в спине, возможность самой нести багаж по аэропорту</strong></dd>
+          <dt>Основные движения</dt><dd>Тяга на блоке сверху, горизонтальная тяга, становая тяга</dd>
+        </dl>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">③ Грудь + Плечи</div>
+        <div class="muscle-tag">Грудные · Дельтовидные</div>
+        <dl>
+          <dt>Расположение</dt><dd>Передняя часть груди, плечи</dd>
+          <dt>Функция</dt><dd>Толкать, поднимать, давить — любые движения от себя</dd>
+          <dt>Если не тренировать</dt><dd>Не открыть тяжёлую дверь, не поднять багаж, не толкнуть чемодан, скованность и боли в плечах</dd>
+          <dt>Зачем нужны</dt><dd><strong>Независимость верхней части тела в быту, подвижные и безболезненные плечи</strong></dd>
+          <dt>Основные движения</dt><dd>Жим лёжа, жим над головой, сведения на блоке</dd>
+        </dl>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">④ Корпус</div>
+        <div class="muscle-tag">Пресс · Поясница · Глубокие мышцы корпуса</div>
+        <dl>
+          <dt>Расположение</dt><dd>Туловище, от груди до таза</dd>
+          <dt>Функция</dt><dd>Устойчивость позвоночника, передача усилия, баланс, защита органов</dd>
+          <dt>Если не тренировать</dt><dd>Боли в спине, плохой баланс, лёгкие растяжения, нестабильность во всех движениях</dd>
+          <dt>Зачем нужны</dt><dd><strong>Главная страховка от падений и основа для всех других движений</strong></dd>
+          <dt>Основные движения</dt><dd>Планка, "мёртвый жук", "охотничья собака", боковая планка</dd>
+        </dl>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Почему сначала большие мышцы</div>
+        <p>Большие группы мышц — это более 70% всей мышечной массы. Их тренировка даёт наибольший эффект для <strong>общего обмена веществ, плотности костей и гормонов</strong>. Базовые упражнения, в которых они работают, задействуют несколько мышц одновременно — высокая эффективность. После 54 время и восстановление дороги: <em>вкладывайте силы туда, где они важнее всего</em>.</p>
+      </div>
+    </section>
+
+    <section id="ch6">
+      <div class="chapter-num">Глава Шестая</div>
+      <h2>Знакомство с домашним залом</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(80, 60)">
+            <rect x="0" y="0" width="6" height="180" fill="#5a514a"/>
+            <rect x="120" y="0" width="6" height="180" fill="#5a514a"/>
+            <rect x="0" y="0" width="126" height="6" fill="#5a514a"/>
+            <rect x="0" y="174" width="126" height="10" fill="#5a514a"/>
+            <circle cx="20" cy="20" r="6" fill="none" stroke="#8a7f73" stroke-width="2"/>
+            <circle cx="106" cy="20" r="6" fill="none" stroke="#8a7f73" stroke-width="2"/>
+            <line x1="20" y1="26" x2="20" y2="120" stroke="#8a7f73" stroke-width="1"/>
+            <line x1="106" y1="26" x2="106" y2="120" stroke="#8a7f73" stroke-width="1"/>
+            <rect x="14" y="120" width="12" height="20" fill="#8b3a2f" rx="2"/>
+            <rect x="100" y="120" width="12" height="20" fill="#8b3a2f" rx="2"/>
+            <rect x="40" y="60" width="46" height="80" fill="#ede4d3" stroke="#8a7f73" stroke-width="1"/>
+            <line x1="40" y1="75" x2="86" y2="75" stroke="#8a7f73" stroke-width="0.5"/>
+            <line x1="40" y1="90" x2="86" y2="90" stroke="#8a7f73" stroke-width="0.5"/>
+            <line x1="40" y1="105" x2="86" y2="105" stroke="#8a7f73" stroke-width="0.5"/>
+            <line x1="40" y1="120" x2="86" y2="120" stroke="#8a7f73" stroke-width="0.5"/>
+            <text x="63" y="210" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#2a2620" font-weight="600">Блочный тренажёр</text>
+            <text x="63" y="228" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8a7f73">Устойчиво · Безопасно</text>
+          </g>
+          <g transform="translate(280, 130)">
+            <rect x="0" y="35" width="240" height="6" fill="#5a514a" rx="3"/>
+            <rect x="20" y="15" width="10" height="46" fill="#2a2620" rx="2"/>
+            <rect x="32" y="10" width="14" height="56" fill="#8b3a2f" rx="2"/>
+            <rect x="48" y="5" width="16" height="66" fill="#2a2620" rx="2"/>
+            <rect x="210" y="15" width="10" height="46" fill="#2a2620" rx="2"/>
+            <rect x="194" y="10" width="14" height="56" fill="#8b3a2f" rx="2"/>
+            <rect x="176" y="5" width="16" height="66" fill="#2a2620" rx="2"/>
+            <rect x="65" y="32" width="4" height="12" fill="#8a7f73"/>
+            <rect x="171" y="32" width="4" height="12" fill="#8a7f73"/>
+            <text x="120" y="105" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#2a2620" font-weight="600">Штанга</text>
+            <text x="120" y="123" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8a7f73">Тяжёлое · Базовое</text>
+          </g>
+          <g transform="translate(580, 140)">
+            <rect x="40" y="20" width="60" height="8" fill="#5a514a" rx="2"/>
+            <ellipse cx="35" cy="24" rx="14" ry="20" fill="#2a2620"/>
+            <ellipse cx="105" cy="24" rx="14" ry="20" fill="#2a2620"/>
+            <ellipse cx="35" cy="24" rx="10" ry="14" fill="#8b3a2f"/>
+            <ellipse cx="105" cy="24" rx="10" ry="14" fill="#8b3a2f"/>
+            <rect x="40" y="65" width="60" height="6" fill="#5a514a" rx="2"/>
+            <ellipse cx="35" cy="68" rx="11" ry="16" fill="#2a2620"/>
+            <ellipse cx="105" cy="68" rx="11" ry="16" fill="#2a2620"/>
+            <ellipse cx="35" cy="68" rx="7" ry="11" fill="#8b3a2f"/>
+            <ellipse cx="105" cy="68" rx="7" ry="11" fill="#8b3a2f"/>
+            <text x="70" y="115" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#2a2620" font-weight="600">Гантели</text>
+            <text x="70" y="133" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8a7f73">Гибко · На всех этапах</text>
+          </g>
+          <text x="400" y="30" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8a7f73" letter-spacing="3">ТРИ ОСНОВНЫХ СНАРЯДА</text>
+        </svg>
+      </div>
+
+      <p>В этом домашнем зале три ключевых снаряда: <strong>блочный тренажёр, штанга и гантели</strong>. Вместе они покрывают все важные движения, нужные пожилому человеку.</p>
+
+      <h3>Блочный тренажёр</h3>
+      <p>Блочный тренажёр использует ролики и тросы для сопротивления. Главное преимущество — <strong>стабильное направление нагрузки и безопасная траектория</strong>: даже тренируясь в одиночку, вы вряд ли травмируетесь.</p>
+      <ul>
+        <li><strong>Что тренируется:</strong> Тяга верхнего блока, горизонтальная тяга, сведения на грудь, тяга к лицу, разгибания на трицепс, сгибания на бицепс, отведения ноги для ягодиц</li>
+        <li><strong>Кому подходит:</strong> Начинающим, людям с нестабильностью суставов, при тренировках в одиночку</li>
+        <li><strong>Безопасность:</strong> Проверяйте крепление тросов перед тренировкой, фиксируйте штифт высоты блока, держите корпус стабильно во время движения</li>
+      </ul>
+
+      <h3>Штанга</h3>
+      <p>Штанга позволяет работать с самым большим весом в силовых тренировках — идеальна для больших групп мышц и базовых упражнений.</p>
+      <ul>
+        <li><strong>Что тренируется:</strong> Приседания, становая тяга, жим лёжа, жим над головой, тяга</li>
+        <li><strong>Кому подходит:</strong> Для прогресса после освоения базовых движений</li>
+        <li><strong>Безопасность:</strong> Приседания и жим лёжа — только со <strong>страховочными упорами или стойкой</strong>. Всегда фиксируйте блины замками. <em>Тяжёлые подходы — со страхующим</em>.</li>
+      </ul>
+
+      <h3>Гантели</h3>
+      <p>Гантели — самый универсальный снаряд: независимая работа левой и правой стороны, свободная амплитуда. Для пожилых они <strong>одновременно тренируют силу и стабильность</strong> и позволяют найти самый удобный угол.</p>
+      <ul>
+        <li><strong>Что тренируется:</strong> Почти всё — жимы, разведения, тяги, сгибания, выпады, махи в стороны</li>
+        <li><strong>Кому подходит:</strong> На всех этапах, особенно начинающим и после реабилитации</li>
+        <li><strong>Безопасность:</strong> Начинайте с лёгких весов. Не бросайте гантели на пол. Сидя — спина полностью прижата к спинке.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Совет начинающим</div>
+        <p>Первые 4 недели — <strong>основное внимание гантелям, блочный тренажёр как дополнение</strong>. Когда движения стабильны и тело привыкло к ритму, постепенно подключайте штангу. <em>Не гонитесь за большим весом с первого дня</em> — техника всегда важнее нагрузки.</p>
+      </div>
+    </section>
+
+    <section id="ch7">
+      <div class="chapter-num">Глава Седьмая</div>
+      <h2>Основные упражнения</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+          <g font-family="Lora, serif" font-size="10" fill="#2a2620" text-anchor="middle">
+            <g transform="translate(100, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="0" cy="-15" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-10" x2="0" y2="5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="5" x2="-10" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="5" x2="10" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-10" y1="15" x2="-10" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="10" y1="15" x2="10" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-8" y1="-10" x2="-12" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="8" y1="-10" x2="12" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <text y="50">Присед</text>
+            </g>
+            <g transform="translate(220, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="0" cy="-15" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-10" x2="-5" y2="5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-5" y1="5" x2="-5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="5" y1="5" x2="5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-5" y1="0" x2="-12" y2="12" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="5" y1="0" x2="12" y2="12" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-14" y1="14" x2="14" y2="14" stroke="#2a2620" stroke-width="2.5"/>
+              <text y="50">Тяга</text>
+            </g>
+            <g transform="translate(340, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <rect x="-15" y="5" width="30" height="3" fill="#8a7f73"/>
+              <line x1="-12" y1="5" x2="-12" y2="15" stroke="#8a7f73" stroke-width="1.5"/>
+              <line x1="12" y1="5" x2="12" y2="15" stroke="#8a7f73" stroke-width="1.5"/>
+              <ellipse cx="0" cy="0" rx="10" ry="3" fill="#8b3a2f"/>
+              <line x1="-15" y1="-8" x2="15" y2="-8" stroke="#2a2620" stroke-width="2.5"/>
+              <circle cx="-15" cy="-8" r="4" fill="#2a2620"/>
+              <circle cx="15" cy="-8" r="4" fill="#2a2620"/>
+              <text y="50">Жим лёжа</text>
+            </g>
+            <g transform="translate(460, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="0" cy="-12" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-7" x2="0" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="-2" x2="-10" y2="-15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="-2" x2="10" y2="-15" stroke="#8b3a2f" stroke-width="2"/>
+              <circle cx="-12" cy="-18" r="4" fill="#2a2620"/>
+              <circle cx="12" cy="-18" r="4" fill="#2a2620"/>
+              <text y="50">Жим вверх</text>
+            </g>
+            <g transform="translate(580, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <line x1="-15" y1="-22" x2="15" y2="-22" stroke="#2a2620" stroke-width="2"/>
+              <line x1="-12" y1="-22" x2="-8" y2="-5" stroke="#8a7f73" stroke-width="1.5"/>
+              <line x1="12" y1="-22" x2="8" y2="-5" stroke="#8a7f73" stroke-width="1.5"/>
+              <circle cx="0" cy="0" r="4" fill="#8b3a2f"/>
+              <line x1="0" y1="4" x2="0" y2="18" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-8" y1="-5" x2="0" y2="2" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="8" y1="-5" x2="0" y2="2" stroke="#8b3a2f" stroke-width="2"/>
+              <text y="50">Тяга блока</text>
+            </g>
+            <g transform="translate(700, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="-5" cy="-10" r="5" fill="#8b3a2f"/>
+              <line x1="-5" y1="-5" x2="-5" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-5" y1="0" x2="8" y2="0" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="8" y1="0" x2="14" y2="-3" stroke="#2a2620" stroke-width="2.5"/>
+              <text y="50">Горизонт.</text>
+            </g>
+            <g transform="translate(280, 160)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <line x1="-18" y1="5" x2="18" y2="-5" stroke="#8b3a2f" stroke-width="3"/>
+              <circle cx="18" cy="-5" r="4" fill="#8b3a2f"/>
+              <line x1="-18" y1="5" x2="-18" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-12" y1="5" x2="-12" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <text y="50">Планка</text>
+            </g>
+            <g transform="translate(440, 160)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="0" cy="-13" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-8" x2="0" y2="10" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="10" x2="-5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="10" x2="5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-2" y1="-5" x2="-18" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="2" y1="-5" x2="18" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <circle cx="-20" cy="-5" r="3" fill="#2a2620"/>
+              <circle cx="20" cy="-5" r="3" fill="#2a2620"/>
+              <text y="50">Махи</text>
+            </g>
+            <g transform="translate(600, 160)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <line x1="-18" y1="5" x2="18" y2="-5" stroke="#8a7f73" stroke-width="2.5"/>
+              <ellipse cx="0" cy="0" rx="6" ry="2.5" fill="#8b3a2f"/>
+              <path d="M -3 -2 Q -10 -10 -16 -8" fill="none" stroke="#8b3a2f" stroke-width="2"/>
+              <path d="M 3 -2 Q 10 -10 16 -8" fill="none" stroke="#8b3a2f" stroke-width="2"/>
+              <circle cx="-18" cy="-8" r="3" fill="#2a2620"/>
+              <circle cx="18" cy="-8" r="3" fill="#2a2620"/>
+              <text y="50">Сведения</text>
+            </g>
+          </g>
+          <text x="400" y="200" text-anchor="middle" font-family="Lora, serif" font-size="11" fill="#8a7f73" letter-spacing="2">ДЕВЯТЬ УПРАЖНЕНИЙ · ВСЁ ТЕЛО</text>
+        </svg>
+      </div>
+
+      <p>Эти девять упражнений полностью охватывают четыре основные группы мышц. Освойте их — и обеспечите себе здоровье на следующие тридцать лет. <strong>Для каждого: посмотрите GIF, прочитайте инструкцию, обратите внимание на предупреждения</strong>.</p>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Кубковый присед GIF · gifs/goblet-squat.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">1. Кубковый присед с гантелью</div>
+          <div class="move-target">Цель · Ноги + Корпус</div>
+          <ul class="move-points">
+            <li>Держите одну гантель на уровне груди, локти естественно опущены</li>
+            <li>Ноги на ширине плеч, носки слегка развернуты наружу</li>
+            <li>Опускайтесь, <strong>сначала отводя таз назад</strong>, колени идут за носками</li>
+            <li>Опускайтесь до параллели бёдер с полом (или до комфортной глубины)</li>
+            <li>Толкайтесь пятками, сжимайте ягодицы, вставайте</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Колени не должны заваливаться внутрь. Спина прямая, не круглая. Вдох вниз, выдох вверх.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Румынская тяга GIF · gifs/rdl.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">2. Румынская становая тяга с гантелями</div>
+          <div class="move-target">Цель · Ягодицы + Бицепс бедра + Поясница</div>
+          <ul class="move-points">
+            <li>По гантели в каждой руке, руки расслаблены перед бёдрами</li>
+            <li>Ноги на ширине таза, колени <strong>слегка согнуты и зафиксированы</strong></li>
+            <li>Отводите таз назад, наклоняйтесь вперёд, гантели скользят вдоль бёдер</li>
+            <li>Почувствуйте растяжение задней поверхности бедра, опускайтесь до середины голени</li>
+            <li>Сжимайте ягодицы, чтобы вернуться в стойку</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Спина прямая всё время. Это сгиб в тазобедренном суставе, <em>а не наклон в пояснице</em>. При проблемах со спиной начинайте с очень лёгкого веса.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Жим гантелей GIF · gifs/db-bench-press.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">3. Жим гантелей лёжа</div>
+          <div class="move-target">Цель · Грудь + Трицепс + Передние дельты</div>
+          <ul class="move-points">
+            <li>Лягте на скамью, ступни плотно на полу</li>
+            <li>Гантели в стартовом положении над грудью</li>
+            <li>Опускайте к бокам груди, локти под углом около 45 градусов</li>
+            <li>Жмите вверх, гантели сходятся над грудью (но не стучат друг о друга)</li>
+            <li>Держите лопатки сведёнными и прижатыми к скамье</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Обязательно используйте скамью. Не выпрямляйте локти до упора. В первый раз — самый лёгкий вес, чтобы освоить траекторию.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Тяга верхнего блока GIF · gifs/lat-pulldown.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">4. Тяга верхнего блока</div>
+          <div class="move-target">Цель · Широчайшие + Задние дельты</div>
+          <ul class="move-points">
+            <li>Сядьте у тренажёра, бёдра под валиком</li>
+            <li>Хват рукояти чуть шире плеч</li>
+            <li>Грудь вперёд, лопатки опущены</li>
+            <li>Тяните <strong>спиной</strong>, опуская рукоять к ключицам</li>
+            <li>Медленно возвращайте, чувствуя растяжение широчайших</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Лёгкое отклонение назад допустимо, но без раскачивания. Не тяните руками — сначала найдите "ощущение спины", потом добавляйте вес.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Горизонтальная тяга GIF · gifs/seated-row.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">5. Горизонтальная тяга на блоке сидя</div>
+          <div class="move-target">Цель · Середина спины + Задние дельты + Бицепс</div>
+          <ul class="move-points">
+            <li>Сядьте у блока, ступни на упоре, колени слегка согнуты</li>
+            <li>Возьмите рукоять, корпус прямо</li>
+            <li>Старт: руки выпрямлены, плечи слегка вперёд, широчайшие растянуты</li>
+            <li>Тяните к животу, локти близко к корпусу, лопатки сводите к позвоночнику</li>
+            <li>Медленно возвращайте</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Не используйте инерцию, отклоняясь назад. Начинайте тягу с лопаток. Одно из лучших упражнений против сутулости.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Жим над головой GIF · gifs/shoulder-press.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">6. Жим гантелей над головой</div>
+          <div class="move-target">Цель · Дельтовидные + Трицепс</div>
+          <ul class="move-points">
+            <li>Сидя (со спинкой) безопаснее</li>
+            <li>Гантели на уровне ушей, локти под углом 90 градусов</li>
+            <li>Жмите вверх, сводя гантели над головой</li>
+            <li>Медленно опускайте до уровня ушей</li>
+            <li>Корпус напряжён, поясница не прогибается</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> При прошлых травмах плеча начинайте без веса. Не блокируйте локти. Резкая боль в плечах — немедленно прекратите.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Планка GIF · gifs/plank.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">7. Планка</div>
+          <div class="move-target">Цель · Корпус + Стабильность всего тела</div>
+          <ul class="move-points">
+            <li>Лягте лицом вниз, предплечья на полу, локти под плечами</li>
+            <li>Носки на полу, тело — прямая линия</li>
+            <li><strong>Пресс напряжён, ягодицы сжаты</strong>, поясница не провисает</li>
+            <li>Шея естественно вытянута, взгляд в пол</li>
+            <li>Начните с 20 секунд, доведите до 60</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Лучше короче и правильно, чем долго и неправильно. Поясница провисла — прекращайте. С коленей на полу — так же эффективно.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Махи в стороны GIF · gifs/lateral-raise.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">8. Махи гантелей в стороны</div>
+          <div class="move-target">Цель · Средние дельты (ширина плеч)</div>
+          <ul class="move-points">
+            <li>Ноги на ширине плеч, гантели висят по бокам</li>
+            <li>Корпус напряжён, лопатки опущены</li>
+            <li>Поднимайте руки в стороны до параллели с полом (локти слегка согнуты)</li>
+            <li>Задержите на полсекунды наверху, медленно опускайте</li>
+            <li>Внизу не расслабляйтесь полностью — держите напряжение в плечах</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Лёгкий вес (для начала 2–4 кг). Не поднимайте плечи. Без инерции. Медленно и плавно.</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Разводка гантелей GIF · gifs/dumbbell-fly.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">9. Разводка гантелей лёжа</div>
+          <div class="move-target">Цель · Грудные (форма груди + подвижность плеч)</div>
+          <ul class="move-points">
+            <li>Лягте на скамью, ступни на полу</li>
+            <li>Старт: гантели над грудью, ладони друг к другу</li>
+            <li>Локти слегка согнуты, угол сохраняется постоянным</li>
+            <li>Разводите руки по дуге в стороны, почувствуйте полное растяжение груди</li>
+            <li>"Обнимайте" обратно в исходное, как будто обнимаете дерево</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> Угол в локте сохраняйте всё время — это не жим. Разводите до отчётливого растяжения, не дальше. <em>Отлично против сутулости</em>.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ch8">
+      <div class="chapter-num">Глава Восьмая</div>
+      <h2>Растяжка после тренировки</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+          <text x="400" y="35" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8b3a2f" letter-spacing="3" font-weight="600">ПОЛНАЯ СХЕМА ТРЕНИРОВКИ</text>
+          <g transform="translate(80, 80)">
+            <rect x="0" y="0" width="160" height="50" fill="#b9695a" opacity="0.25" stroke="#8b3a2f" stroke-width="1.5" rx="4"/>
+            <text x="80" y="22" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#8b3a2f" font-weight="700">Разминка</text>
+            <text x="80" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">10 мин</text>
+            <path d="M 165 25 L 195 25" stroke="#8a7f73" stroke-width="2" marker-end="url(#arrow2)"/>
+            <rect x="200" y="0" width="240" height="50" fill="#5a8a6f" opacity="0.25" stroke="#3d6b54" stroke-width="1.5" rx="4"/>
+            <text x="320" y="22" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#3d6b54" font-weight="700">Силовая тренировка</text>
+            <text x="320" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">30–40 мин</text>
+            <path d="M 445 25 L 475 25" stroke="#8a7f73" stroke-width="2" marker-end="url(#arrow2)"/>
+            <rect x="480" y="0" width="160" height="50" fill="#3a6a8b" opacity="0.25" stroke="#1f4a6b" stroke-width="2.5" rx="4"/>
+            <text x="560" y="22" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#1f4a6b" font-weight="700">Растяжка</text>
+            <text x="560" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">10 мин</text>
+          </g>
+          <defs><marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#8a7f73"/></marker></defs>
+          <g transform="translate(560, 160)">
+            <rect x="-80" y="0" width="160" height="50" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5" rx="4" stroke-dasharray="4 3"/>
+            <text x="0" y="22" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#8b3a2f" font-weight="700">Эта глава</text>
+            <text x="0" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5a514a">Эти 10 минут пропускать нельзя</text>
+          </g>
+          <path d="M 560 158 Q 590 145 615 138" stroke="#8b3a2f" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+        </svg>
+      </div>
+
+      <p>После тренировки тело "тёплое" — мышцы эластичные, кровообращение интенсивное. Это <strong>золотое окно для статической растяжки</strong>. Десять минут здесь дают три конкретных эффекта.</p>
+
+      <h3>Почему важна растяжка после тренировки</h3>
+
+      <h4>① Помогает восстановлению мышц</h4>
+      <p>После тренировки мышцы напряжены и микроскопически повреждены. Растяжка помогает им <strong>вернуться к нормальной длине</strong>, приводит кровь к повреждённым зонам, выводит продукты обмена, уменьшает боль на следующий день.</p>
+
+      <h4>② Поддерживает гибкость</h4>
+      <p>Силовые делают мышцы толще и сильнее, но без растяжки они становятся жёстче, а амплитуда сокращается. <em>Плохая гибкость — одна из главных причин скованности и ограниченной подвижности в старости</em>. Растяжка после каждой тренировки — ключ к подвижности.</p>
+
+      <h4>③ Плавно снижает пульс и активность нервной системы</h4>
+      <p>Тренировка переводит нервную систему в возбуждённое состояние. Резкая остановка может вызвать головокружение или сердцебиение. Растяжка — это <strong>переход от активности к покою</strong>: пульс и давление плавно снижаются, сон становится лучше.</p>
+
+      <h3>Растяжка за 10 минут</h3>
+      <p>Удерживайте каждое положение <strong>20–30 секунд</strong>, по 1–2 круга. <em>Без боли</em> — ищите точку "отчётливо тянет, но не больно".</p>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ Растяжка GIF · gifs/stretching.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">Последовательность из 8 растяжек</div>
+          <div class="move-target">По 20–30 секунд · всего 10 минут</div>
+          <ul class="move-points">
+            <li><strong>Растяжка квадрицепса:</strong> Стоя, одна рука у стены, другая тянет лодыжку назад</li>
+            <li><strong>Растяжка бицепса бедра:</strong> Сидя, одна нога прямая, тянитесь к носкам</li>
+            <li><strong>Растяжка ягодиц/грушевидной:</strong> Лёжа на спине, одна лодыжка на колене другой ноги, тяните бедро к себе</li>
+            <li><strong>Растяжка сгибателей бедра:</strong> Выпад с колена, заднее колено на полу, таз вперёд</li>
+            <li><strong>Растяжка груди:</strong> Стоя, предплечье на стене, поворачивайте корпус в противоположную сторону</li>
+            <li><strong>Растяжка спины:</strong> На коленях, руки вперёд на полу, таз назад к пяткам (поза ребёнка)</li>
+            <li><strong>Растяжка плеча:</strong> Тяните одну руку поперёк груди, другая поддерживает за локоть</li>
+            <li><strong>Растяжка шеи:</strong> Голова медленно наклоняется в сторону, рука с той же стороны мягко углубляет растяжку</li>
+          </ul>
+          <div class="move-warn"><strong>Внимание:</strong> <em>Дышите ровно — не задерживайте дыхание</em>. Без рывков. Обе стороны одинаково.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Одной фразой</div>
+        <p>Разминка позволяет <strong>начать тренироваться</strong>, растяжка позволяет <strong>продолжать тренироваться</strong>. Ни одно нельзя пропустить. Вместе — 20 минут, страховка и для результата, и для здоровья.</p>
+      </div>
+    </section>
+
+    <section id="ch9">
+      <div class="chapter-num">Глава Девятая</div>
+      <h2>План на 12 недель для начинающих</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(80, 50)">
+            <rect x="0" y="120" width="200" height="50" fill="#b9695a" opacity="0.25" stroke="#8b3a2f" stroke-width="1.5" rx="3"/>
+            <text x="100" y="142" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8b3a2f" font-weight="700">Недели 1–4</text>
+            <text x="100" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Адаптация · Освоить технику</text>
+            <rect x="220" y="70" width="200" height="100" fill="#b9695a" opacity="0.4" stroke="#8b3a2f" stroke-width="1.5" rx="3"/>
+            <text x="320" y="115" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#8b3a2f" font-weight="700">Недели 5–8</text>
+            <text x="320" y="135" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Прогрессия</text>
+            <text x="320" y="151" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5a514a">Постепенно добавлять вес</text>
+            <rect x="440" y="20" width="200" height="150" fill="#b9695a" opacity="0.55" stroke="#8b3a2f" stroke-width="1.5" rx="3"/>
+            <text x="540" y="80" text-anchor="middle" font-family="Lora, serif" font-size="13" fill="#ffffff" font-weight="700">Недели 9–12</text>
+            <text x="540" y="100" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ffffff">Закрепление</text>
+            <text x="540" y="116" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ffffff">Включить штангу</text>
+            <text x="540" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ffffff">Самостоятельные тренировки</text>
+            <path d="M 70 200 L 670 0" stroke="#8b3a2f" stroke-width="1.5" fill="none" stroke-dasharray="4 3" opacity="0.5"/>
+          </g>
+          <text x="400" y="230" text-anchor="middle" font-family="Lora, serif" font-size="11" fill="#8a7f73" letter-spacing="2">ТРИ ТРЕНИРОВКИ В НЕДЕЛЮ · ПОСТЕПЕННО</text>
+        </svg>
+      </div>
+
+      <p>Этот 12-недельный план — для абсолютных новичков. <strong>Постепенно, без спешки</strong>. Три тренировки в неделю по 45–60 минут (включая разминку и растяжку).</p>
+
+      <h3>Фаза 1 (Недели 1–4) · Адаптация</h3>
+      <p>Цель: дать телу привыкнуть к ритму и освоить движения. <em>Лёгкий вес, мало подходов, достаточно отдыха</em>.</p>
+
+      <table class="plan-table">
+        <thead><tr><th>День</th><th>Упражнение</th><th>Подходы × Повторы</th><th>Фокус</th></tr></thead>
+        <tbody>
+          <tr><td class="week">Пн<br>Низ</td><td>Кубковый присед<br>Румынская тяга<br>Планка</td><td>3 × 10<br>3 × 10<br>3 × 20 сек</td><td>Найти мышцу</td></tr>
+          <tr><td class="week">Ср<br>Жимы</td><td>Жим гантелей лёжа<br>Жим над головой<br>Махи в стороны<br>Планка</td><td>3 × 10<br>3 × 10<br>3 × 12<br>3 × 20 сек</td><td>Медленно и плавно</td></tr>
+          <tr><td class="week">Пт<br>Тяги</td><td>Тяга верхнего блока<br>Горизонт. тяга<br>Разводка гантелей<br>Мёртвый жук</td><td>3 × 10<br>3 × 10<br>3 × 12<br>3 × 10/сторона</td><td>Тянуть спиной</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Фаза 2 (Недели 5–8) · Прогрессия</h3>
+      <p>Цель: движения знакомы — пора добавлять вес. <em>Прибавка 1–2,5 кг в неделю</em>, так чтобы последние два повторения давались с трудом.</p>
+
+      <table class="plan-table">
+        <thead><tr><th>День</th><th>Упражнение</th><th>Подходы × Повторы</th><th>Фокус</th></tr></thead>
+        <tbody>
+          <tr><td class="week">Пн<br>Низ</td><td>Кубковый присед<br>Румынская тяга<br>Выпады в движении<br>Планка</td><td>4 × 10<br>4 × 10<br>3 × 8/сторона<br>3 × 30 сек</td><td>Добавить вес</td></tr>
+          <tr><td class="week">Ср<br>Жимы + Плечи</td><td>Жим лёжа<br>Жим над головой<br>Махи в стороны<br>Сведения на блоке</td><td>4 × 10<br>4 × 8<br>3 × 12<br>3 × 12</td><td>Отдых 90 сек</td></tr>
+          <tr><td class="week">Пт<br>Тяги + Корпус</td><td>Тяга верхнего блока<br>Горизонт. тяга<br>Разводка гантелей<br>Мёртвый жук + Охот. собака</td><td>4 × 10<br>4 × 10<br>3 × 12<br>3 × 10/сторона</td><td>Грудь вверх, плечи вниз</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Фаза 3 (Недели 9–12) · Закрепление</h3>
+      <p>Цель: техника стабильна — включаем штангу. <em>Приседания со штангой, становая тяга, жим лёжа</em> становятся доступны. Начинайте с пустого грифа, подтверждайте технику, потом добавляйте блины.</p>
+
+      <table class="plan-table">
+        <thead><tr><th>День</th><th>Упражнение</th><th>Подходы × Повторы</th><th>Фокус</th></tr></thead>
+        <tbody>
+          <tr><td class="week">Пн<br>Низ</td><td>Присед со штангой (пустой гриф)<br>Румынская тяга<br>Выпады в движении<br>Планка</td><td>4 × 8<br>4 × 10<br>3 × 10/сторона<br>3 × 45 сек</td><td>Использовать стойку</td></tr>
+          <tr><td class="week">Ср<br>Жимы + Плечи</td><td>Жим штанги (лёгкий)<br>Жим над головой<br>Махи в стороны<br>Сведения на блоке</td><td>4 × 8<br>4 × 10<br>4 × 12<br>3 × 12</td><td>Со страхующим</td></tr>
+          <tr><td class="week">Пт<br>Тяги + Корпус</td><td>Тяга верхнего блока<br>Горизонт. тяга<br>Разводка гантелей<br>Мёртвый жук + Охот. собака</td><td>4 × 10<br>4 × 10<br>4 × 12<br>3 × 10/сторона</td><td>Корпус постоянно напряжён</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">После 12 недель</div>
+        <p>Теперь у вас есть навык самостоятельной тренировки. Продолжайте корректировать по интересу и потребностям, но эти принципы неизменны: <strong>техника важнее веса; постепенность важнее скорости; регулярность важнее интенсивности</strong>.</p>
+      </div>
+    </section>
+
+    <section id="ch10">
+      <div class="chapter-num">Глава Десятая</div>
+      <h2>Что есть</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(120, 60)">
+            <circle cx="80" cy="60" r="55" fill="#8b3a2f" opacity="0.15" stroke="#8b3a2f" stroke-width="2"/>
+            <text x="80" y="50" text-anchor="middle" font-family="Lora, serif" font-size="15" fill="#8b3a2f" font-weight="700">Белок</text>
+            <text x="80" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5a514a">Стройматериал мышц</text>
+            <text x="80" y="84" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#8b3a2f" font-weight="700">1.2–1.6 g/kg</text>
+            <circle cx="280" cy="60" r="55" fill="#5a8a6f" opacity="0.2" stroke="#3d6b54" stroke-width="2"/>
+            <text x="280" y="50" text-anchor="middle" font-family="Lora, serif" font-size="15" fill="#3d6b54" font-weight="700">Кальций</text>
+            <text x="280" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5a514a">Стройматериал костей</text>
+            <text x="280" y="84" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#3d6b54" font-weight="700">1000–1200 mg</text>
+            <circle cx="480" cy="60" r="55" fill="#d4a574" opacity="0.3" stroke="#a87a4b" stroke-width="2"/>
+            <text x="480" y="50" text-anchor="middle" font-family="Lora, serif" font-size="14" fill="#a87a4b" font-weight="700">Витамин D</text>
+            <text x="480" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5a514a">Доставка кальция</text>
+            <text x="480" y="84" text-anchor="middle" font-family="Lora, serif" font-size="12" fill="#a87a4b" font-weight="700">800–1000 IU</text>
+            <line x1="135" y1="60" x2="225" y2="60" stroke="#8a7f73" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="335" y1="60" x2="425" y2="60" stroke="#8a7f73" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+          <text x="400" y="220" text-anchor="middle" font-family="Lora, serif" font-size="11" fill="#8a7f73" letter-spacing="2">ТРИ КЛЮЧЕВЫХ НУТРИЕНТА · СУТОЧНАЯ НОРМА</text>
+        </svg>
+      </div>
+
+      <p>Тренировки — это половина. Питание — вторая половина. У пожилых приоритеты иные, чем у молодых: <strong>белок, кальций и витамин D</strong> — три ключевых нутриента.</p>
+
+      <h3>Сначала: от мяса НЕ толстеют</h3>
+      <p>Многие пожилые уверены: "чтобы не поправиться, нужно меньше мяса". Это <strong>неверно</strong>, и особенно вредно в старшем возрасте.</p>
+      <p>На самом деле к набору веса ведут <em>рафинированные углеводы, сладкие напитки, жареное, выпечка и сладости</em> — много калорий, мало насыщения, скачки сахара в крови и быстрый перевод в жир.</p>
+      <p>Нежирное мясо, яйца, рыба и соевые продукты — <strong>качественный белок</strong> — наоборот. Они хорошо насыщают (вы не голодны быстро), имеют высокий термический эффект (на их переваривание уходит много калорий), и главное — <strong>дают сырьё для синтеза мышц</strong>. Исследования показывают: при равной калорийности высокобелковая диета легче приводит к потере жира и сохранению мышц.</p>
+      <div class="callout">
+        <div class="callout-title">Запомните</div>
+        <p>Откажетесь от мяса — потеряете мышцы. Откажетесь от рафинированных углеводов, сахара и масла — потеряете жир. <strong>После 54 недостаток белка гораздо опаснее избытка</strong>.</p>
+      </div>
+
+      <h3>Белок · Стройматериал мышц</h3>
+      <p>Пожилым нужно <em>больше</em> белка, чем молодым, потому что эффективность построения мышц снижается. Рекомендуется <span class="stat">1,2–1,6 г на кг</span> массы тела в сутки. Человеку 60 кг нужно 72–96 г белка в день.</p>
+      <p><strong>Повседневные источники белка:</strong></p>
+      <ul>
+        <li>Яйца: 1–2 в день, дёшево и просто</li>
+        <li>Куриная грудка, нежирная говядина, рыба: порция размером с ладонь за приём пищи</li>
+        <li>Тофу, соевое молоко, эдамаме: отличный растительный белок</li>
+        <li>Молоко, йогурт: 200–300 мл в день</li>
+        <li>Белок в течение 1 часа после тренировки — для максимального эффекта</li>
+      </ul>
+
+      <h3>Кальций · Стройматериал костей</h3>
+      <p>Пожилым женщинам нужно около <span class="stat">1000–1200 мг</span> кальция в сутки. Только препараты кальция — недостаточно: <strong>главное — постоянные пищевые источники</strong>.</p>
+      <p><strong>Повседневные источники кальция:</strong></p>
+      <ul>
+        <li>Молоко, йогурт, сыр</li>
+        <li>Тофу, сухой тофу (традиционный на гипсе или рассоле богаче кальцием)</li>
+        <li>Тёмно-зелёные овощи: капуста, шпинат, китайская капуста, брокколи</li>
+        <li>Мелкая рыба с костями (например, сардины), сушёные креветки</li>
+        <li>Кунжутная паста: удивительно богата кальцием, используйте как соус или заправку</li>
+      </ul>
+
+      <h3>Витамин D · Доставка кальция</h3>
+      <p>Без витамина D кальций не усваивается, сколько бы вы его ни ели. Дефицит у пожилых очень распространён.</p>
+      <ul>
+        <li><strong>Солнце:</strong> 15–20 минут на свету в день, открыты руки или лицо</li>
+        <li><strong>Еда:</strong> Лосось, сардины, яичные желтки, обогащённое молоко</li>
+        <li><strong>Добавки:</strong> Где зимой мало солнца, может помочь 800–1000 МЕ витамина D в день (сначала проверьте уровень в крови)</li>
+      </ul>
+
+      <h3>Быстрые углеводы после тренировки · Скромный банан</h3>
+      <p>Помимо трёх ключевых нутриентов, у пожилых тренирующихся есть <strong>часто упускаемая</strong> возможность: окно "быстрых углеводов" после тренировки.</p>
+      <p>Силовые тренировки расходуют мышечный гликоген ("быструю энергию" в мышцах). В течение 30 минут после тренировки организм находится в <em>окне синтеза гликогена</em>. Быстро усваиваемые углеводы в этот момент:</p>
+      <ul>
+        <li><strong>Быстро восполняют гликоген</strong>, избегая усталости и головокружения позже</li>
+        <li><strong>Стабилизируют сахар в крови</strong>, предотвращая гипогликемию после тренировки</li>
+        <li><strong>Усиливают усвоение белка</strong>, если съесть вместе с белком</li>
+        <li><strong>Снижают распад мышц</strong>, сохраняя ваши результаты</li>
+      </ul>
+      <p><strong>Самое простое решение: съешьте банан после тренировки</strong>. В банане есть быстро усваиваемая фруктоза и глюкоза, плюс калий (защищает от судорог) и витамин B6 — идеально для этого момента.</p>
+      <p>Другие варианты быстрых углеводов:</p>
+      <ul>
+        <li>Банан (самое удобное)</li>
+        <li>Небольшая порция белого риса или кусок батата</li>
+        <li>Чашка натурального йогурта с ложкой мёда</li>
+        <li>Яблоко с стаканом молока</li>
+      </ul>
+      <div class="callout">
+        <div class="callout-title">Золотое сочетание</div>
+        <p><strong>В течение 30 минут после тренировки: банан + яйцо (или стакан молока/йогурта)</strong>. Белок + быстрые углеводы — самая простая и эффективная стратегия питания для пожилых тренирующихся.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Питание одной фразой</div>
+        <p>Белок в каждом приёме пищи (мясо, яйца, молочные, бобовые). Молочное и соевое — каждый день. Рыба — каждую неделю. Солнце — каждый день. <strong>Никаких экстремальных диет и дорогих добавок</strong> — нормальная повседневная еда, сделанная правильно, и есть лучшее питание.</p>
+      </div>
+    </section>
+
+    <section id="ch11">
+      <div class="chapter-num">Глава Одиннадцатая</div>
+      <h2>Частые вопросы</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+          <text x="150" y="120" font-family="Lora, serif" font-size="100" fill="#8b3a2f" opacity="0.15" font-weight="700">?</text>
+          <text x="650" y="140" font-family="Lora, serif" font-size="120" fill="#8b3a2f" opacity="0.1" font-weight="700">?</text>
+          <text x="450" y="100" font-family="Lora, serif" font-size="60" fill="#8b3a2f" opacity="0.15" font-weight="700">?</text>
+          <text x="400" y="95" text-anchor="middle" font-family="Lora, serif" font-size="22" fill="#2a2620" font-weight="700">ДЕСЯТЬ ЧАСТЫХ ВОПРОСОВ</text>
+          <text x="400" y="125" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8a7f73" letter-spacing="2">Разобраться с сомнениями перед тренировкой</text>
+          <line x1="350" y1="145" x2="450" y2="145" stroke="#8b3a2f" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">После тренировки болят мышцы — продолжать тренироваться?</div>
+        <div class="qa-a">Лёгкая боль (немного некомфортно подниматься по лестнице) — нормально, тренируйте другую группу мышц. Сильная боль, мешающая обычной жизни — возьмите дополнительный день отдыха. <strong>Боль — это адаптация мышц, обычно она заметно уменьшается через 2–4 недели.</strong></div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">У меня высокое давление — можно силовые тренировки?</div>
+        <div class="qa-a">Можно, при таких условиях: до тренировки давление должно быть в норме; <em>избегайте тяжёлой работы с малым числом повторений</em> (5 и меньше) — берите умеренный вес и делайте 10–15 повторений; <strong>никогда не задерживайте дыхание</strong> (выдыхайте на усилии); избегайте движений, где голова ниже сердца. Сначала проконсультируйтесь с врачом.</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">У меня не очень с коленями — можно приседать?</div>
+        <div class="qa-a">В большинстве случаев — да, и <strong>правильные приседания на самом деле улучшают состояние коленей</strong>, потому что сильные мышцы ног снижают нагрузку на сустав. Начните с приседаний без веса. Опускайтесь на комфортную глубину, до параллели не обязательно. Колени идут за носками, не заваливаются внутрь. При диагностированной травме — сначала к врачу или реабилитологу.</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">У меня менопауза — подходящее время начать?</div>
+        <div class="qa-a">Прекрасное время. <strong>Силовые тренировки заметно облегчают симптомы менопаузы</strong> — улучшают сон, стабилизируют настроение, уменьшают приливы, сохраняют плотность костей. Отдача от тренировок здесь может быть выше, чем в любой другой период жизни.</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">Закружилась голова во время тренировки — что делать?</div>
+        <div class="qa-a">Немедленно остановитесь. Сядьте или присядьте, чтобы голова оказалась ниже, чем при стоянии. Частые причины: <strong>ортостатическая гипотензия</strong> (слишком быстро встали из приседа), <strong>задержка дыхания под нагрузкой</strong> (часто при тяжёлых весах), <strong>низкий сахар в крови</strong> (тренировка натощак или мало поели), <strong>слишком резко увеличили нагрузку</strong>. Что делать: посидите 5–10 мин, выпейте воду и съешьте что-то сладкое (сок, банан), <em>не продолжайте тренировку в этот день</em>. Если головокружения повторяются или сопровождаются болью в груди и сердцебиением — к врачу.</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">Что делать, если упал сахар во время тренировки?</div>
+        <div class="qa-a">Типичные признаки: <strong>сердцебиение, дрожь, холодный пот, головокружение, нечёткое зрение, внезапная слабость</strong>. Немедленно прекратите тренировку. <strong>① Сядьте; ② Съешьте быстрые углеводы</strong> — половину банана, стакан сока, несколько конфет, ложку мёда; <strong>③ Подождите 15 минут, если не легче — повторите; ④ В этот день больше не тренируйтесь</strong>. Профилактика: поешьте за 1–2 часа до тренировки (кусок хлеба + яйцо, или банан + йогурт). <em>Никогда не тренируйтесь натощак</em>. Если низкий сахар случается регулярно — нужно к врачу проверить инсулин и обмен веществ.</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">Когда будут видны результаты?</div>
+        <div class="qa-a">Сила: <strong>2–3 недели</strong> (нейрологическая адаптация); композиция тела: <strong>6–8 недель</strong>; плотность костей: <strong>6–12 месяцев</strong> уже видна в исследованиях. <em>Не гонитесь за быстрым видимым результатом — это долгая игра</em>.</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">Можно ли принимать душ сразу после тренировки?</div>
+        <div class="qa-a">Можно, но подождите <strong>30 минут</strong>, чтобы пульс и температура тела пришли в норму. <em>Вода умеренной температуры</em>, не слишком горячая и не слишком холодная. Зимой избегайте резких сквозняков после тренировки.</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">Когда лучше пропустить тренировку?</div>
+        <div class="qa-a">Чёткие сигналы: температура или сильная простуда; сильная бессонница накануне; ненормальное давление; недиагностированная боль в суставах; голод более 4 часов. <strong>День тренировки — не обязательство, тело важнее, это бег на длинную дистанцию.</strong></div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">Застой в результатах — что делать?</div>
+        <div class="qa-a">У пожилых прогресс идёт ступенями, а не по прямой. <em>Плато — это нормально</em>, обычно длится 2–4 недели. Попробуйте: меняйте упражнения; скорректируйте частоту тренировок; проверьте сон и питание; дайте телу больше времени на восстановление. <strong>Терпение — самое важное качество в этом деле.</strong></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Это руководство основано на общедоступных исследованиях и носит ознакомительный характер.</p>
+      <p>При конкретных проблемах со здоровьем перед началом тренировок проконсультируйтесь с врачом или специалистом по реабилитации.</p>
+      <p style="margin-top: 16px; font-family: var(--serif); color: var(--accent); font-style: italic;">Пусть в 70 вы по-прежнему поднимаетесь в горы, сами несёте свой багаж и проходите аэропорты на собственных ногах.</p>
+    </footer>
+
+  </main>
+
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+  }
+  document.querySelectorAll('.toc a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        document.getElementById('sidebar').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+      }
+    });
+  });
+  const sections = document.querySelectorAll('section[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  function highlightCurrentSection() {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) current = section.getAttribute('id');
+    });
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === current) link.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', highlightCurrentSection);
+  window.addEventListener('load', highlightCurrentSection);
+</script>
+
+</body>
+</html>
