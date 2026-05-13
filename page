@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>白龙山之家 · 家庭健身科普指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #faf6ee;
+    --paper: #ffffff;
+    --ink: #2a2620;
+    --ink-soft: #5a514a;
+    --ink-light: #8a7f73;
+    --accent: #8b3a2f;
+    --accent-soft: #b9695a;
+    --line: #e5dccc;
+    --highlight: #f0e2c4;
+    --serif: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+    --sans: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 17px;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ============ 布局 ============ */
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  /* ============ 左侧目录 ============ */
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid var(--line);
+    padding: 48px 32px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .brand {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .brand-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .brand-sub {
+    font-size: 13px;
+    color: var(--ink-light);
+    letter-spacing: 0.5px;
+  }
+
+  .toc {
+    list-style: none;
+  }
+
+  .toc-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-light);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .toc li {
+    margin-bottom: 4px;
+  }
+
+  .toc a {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 12px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+  }
+
+  .toc a:hover {
+    background: #faf6ee;
+    color: var(--ink);
+  }
+
+  .toc a.active {
+    background: #faf6ee;
+    color: var(--accent);
+    border-left-color: var(--accent);
+    font-weight: 500;
+  }
+
+  .toc-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--ink-light);
+    min-width: 20px;
+  }
+
+  .toc a.active .toc-num {
+    color: var(--accent);
+  }
+
+  /* ============ 主内容区 ============ */
+  .main {
+    padding: 40px 80px 120px;
+    max-width: 780px;
+  }
+
+  /* ============ 头部 ============ */
+  .hero {
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-lead {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+
+  .hero-meta span::before {
+    content: "·";
+    margin-right: 24px;
+    color: var(--line);
+  }
+
+  .hero-meta span:first-child::before {
+    display: none;
+  }
+
+  /* ============ 章节 ============ */
+  section {
+    margin-bottom: 96px;
+    scroll-margin-top: 32px;
+  }
+
+  .chapter-num {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 6px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+
+  h4 {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 18px;
+    color: var(--ink-soft);
+  }
+
+  strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  em {
+    font-style: normal;
+    background: linear-gradient(transparent 60%, var(--highlight) 60%);
+    padding: 0 2px;
+  }
+
+  ul, ol {
+    margin-bottom: 20px;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 10px;
+    color: var(--ink-soft);
+  }
+
+  /* ============ 特殊组件 ============ */
+
+  /* 章节配图 */
+  .chapter-illust {
+    width: 100%;
+    margin: 0 0 32px 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #faf6ee;
+    border: 1px solid var(--line);
+    aspect-ratio: 16 / 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chapter-illust svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* 肌肉地图 - 大图 */
+  .muscle-map {
+    width: 100%;
+    margin: 24px 0 40px;
+    background: #faf6ee;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .muscle-map svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .muscle-map-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-top: 16px;
+    font-family: var(--serif);
+  }
+
+  /* 引用 / 重点框 */
+  .callout {
+    background: #faf6ee;
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  .callout-title {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  /* 误区卡片 */
+  .myth {
+    background: #faf6ee;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+
+  .myth-q {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .myth-q::before {
+    content: "误区";
+    font-size: 11px;
+    background: var(--accent);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .myth-a {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+
+  .myth-a strong {
+    color: var(--accent);
+  }
+
+  /* 好处列表 */
+  .benefits {
+    display: grid;
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .benefit {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .benefit:last-child {
+    border-bottom: none;
+  }
+
+  .benefit-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .benefit-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .benefit-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+
+  /* 肌群卡片 */
+  .muscle {
+    background: #faf6ee;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+
+  .muscle-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .muscle-tag {
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .muscle dl {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px 16px;
+    font-size: 15px;
+  }
+
+  .muscle dt {
+    color: var(--ink-light);
+    font-weight: 500;
+  }
+
+  .muscle dd {
+    color: var(--ink-soft);
+  }
+
+  /* 动作卡片 */
+  .move {
+    background: #faf6ee;
+    margin-bottom: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .move-gif {
+    background: #faf6ee;
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-light);
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .move-gif img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .move-gif.placeholder {
+    background-image: 
+      linear-gradient(45deg, #ffffff 25%, transparent 25%),
+      linear-gradient(-45deg, #ffffff 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #ffffff 75%),
+      linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+
+  .move-gif-label {
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px dashed var(--line);
+    font-family: var(--serif);
+    color: var(--ink-light);
+  }
+
+  .move-content {
+    padding: 24px 28px;
+  }
+
+  .move-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .move-target {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .move-points {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 16px;
+  }
+
+  .move-points li {
+    padding-left: 24px;
+    position: relative;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .move-points li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .move-warn {
+    background: #fdf4ee;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--accent-soft);
+  }
+
+  .move-warn strong {
+    color: var(--accent);
+  }
+
+  /* 训练计划表 */
+  .plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+    background: #faf6ee;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  .plan-table th {
+    background: #f0e7d4;
+    color: var(--ink);
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--line);
+  }
+
+  .plan-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-soft);
+    vertical-align: top;
+  }
+
+  .plan-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .plan-table .week {
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  /* Q&A */
+  .qa {
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+
+  .qa:last-child {
+    border-bottom: none;
+  }
+
+  .qa-q {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .qa-q::before {
+    content: "Q";
+    font-family: var(--serif);
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .qa-a {
+    padding-left: 28px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* 数据强调 */
+  .stat {
+    display: inline-block;
+    font-family: var(--serif);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+
+  /* 页脚 */
+  footer {
+    margin-top: 96px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--ink-light);
+    font-size: 13px;
+  }
+
+  footer p {
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+
+  /* ============ 语言切换器 ============ */
+  .lang-switcher {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    display: flex;
+    gap: 2px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .lang-switcher a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 3px;
+    transition: all 0.15s;
+    font-family: var(--sans);
+    letter-spacing: 0.5px;
+  }
+
+  .lang-switcher a:hover {
+    background: #faf6ee;
+    color: var(--ink);
+  }
+
+  .lang-switcher a.active {
+    background: var(--accent);
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  /* ============ 移动端导航按钮 ============ */
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 100;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--ink);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    font-family: var(--sans);
+  }
+
+  .menu-toggle:hover {
+    background: #faf6ee;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 90;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+
+  /* ============ 响应式 ============ */
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      z-index: 95;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .sidebar.active {
+      transform: translateX(0);
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .main {
+      padding: 64px 24px 80px;
+      max-width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+    }
+
+    h2 {
+      font-size: 26px;
+    }
+
+    h3 {
+      font-size: 19px;
+    }
+
+    body {
+      font-size: 16px;
+    }
+
+    .myth, .muscle, .move-content {
+      padding: 20px;
+    }
+
+    .muscle dl {
+      grid-template-columns: 70px 1fr;
+      font-size: 14px;
+    }
+
+    .plan-table {
+      font-size: 13px;
+    }
+
+    .plan-table th,
+    .plan-table td {
+      padding: 10px 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .main {
+      padding: 56px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 23px;
+    }
+
+    section {
+      margin-bottom: 64px;
+    }
+  }
+
+  /* 打印样式 */
+  @media print {
+    .sidebar, .menu-toggle, .overlay {
+      display: none;
+    }
+    .layout {
+      grid-template-columns: 1fr;
+    }
+    .main {
+      padding: 20px;
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 语言切换器 -->
+<nav class="lang-switcher">
+  <a href="index.html" class="active">中</a>
+  <a href="en.html">EN</a>
+  <a href="ru.html">RU</a>
+</nav>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰ 目录</button>
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<div class="layout">
+
+  <!-- ============ 左侧目录 ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-title">白龙山之家</div>
+      <div class="brand-sub">家庭健身科普指南</div>
+    </div>
+    <div class="toc-label">目 录</div>
+    <ul class="toc">
+      <li><a href="#ch1" data-section="ch1"><span class="toc-num">01</span>为什么是现在</a></li>
+      <li><a href="#ch2" data-section="ch2"><span class="toc-num">02</span>五个常见误区</a></li>
+      <li><a href="#ch3" data-section="ch3"><span class="toc-num">03</span>力量训练的七大好处</a></li>
+      <li><a href="#ch4" data-section="ch4"><span class="toc-num">04</span>训练前的热身</a></li>
+      <li><a href="#ch5" data-section="ch5"><span class="toc-num">05</span>认识身体的四大肌群</a></li>
+      <li><a href="#ch6" data-section="ch6"><span class="toc-num">06</span>认识家庭健身房</a></li>
+      <li><a href="#ch7" data-section="ch7"><span class="toc-num">07</span>核心动作图解</a></li>
+      <li><a href="#ch8" data-section="ch8"><span class="toc-num">08</span>训练后拉伸</a></li>
+      <li><a href="#ch9" data-section="ch9"><span class="toc-num">09</span>12周入门计划</a></li>
+      <li><a href="#ch10" data-section="ch10"><span class="toc-num">10</span>吃什么</a></li>
+      <li><a href="#ch11" data-section="ch11"><span class="toc-num">11</span>常见问题</a></li>
+    </ul>
+  </aside>
+
+  <!-- ============ 主内容区 ============ -->
+  <main class="main">
+
+    <!-- 头部 -->
+    <header class="hero">
+      <div class="hero-eyebrow">白 龙 山 之 家 · 家 庭 健 身 科 普 指 南</div>
+      <h1>54岁,正是开始健身的好年纪</h1>
+      <p class="hero-lead">为什么这是开始训练的最好时机,以及如何在家中安全、有效地开始。</p>
+      <div class="hero-meta">
+        <span>适合零基础</span>
+        <span>家庭健身房</span>
+        <span>循序渐进</span>
+      </div>
+    </header>
+
+    <!-- ============ 第一章 ============ -->
+    <section id="ch1">
+      <div class="chapter-num">第 一 章</div>
+      <h2>为什么是现在</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="curveGrad" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#b9695a" stop-opacity="0.3"/>
+              <stop offset="1" stop-color="#b9695a" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- 网格线 -->
+          <g stroke="#d8cdb9" stroke-width="0.5" opacity="0.5">
+            <line x1="80" y1="60" x2="760" y2="60"/>
+            <line x1="80" y1="120" x2="760" y2="120"/>
+            <line x1="80" y1="180" x2="760" y2="180"/>
+            <line x1="80" y1="240" x2="760" y2="240"/>
+          </g>
+          <!-- 坐标轴 -->
+          <line x1="80" y1="240" x2="760" y2="240" stroke="#5a514a" stroke-width="1.5"/>
+          <line x1="80" y1="40" x2="80" y2="240" stroke="#5a514a" stroke-width="1.5"/>
+          <!-- 不训练的曲线 -->
+          <path d="M 110 80 Q 250 90 380 130 T 720 220" fill="none" stroke="#8a7f73" stroke-width="2" stroke-dasharray="6 4"/>
+          <path d="M 110 80 Q 250 90 380 130 T 720 220 L 720 240 L 110 240 Z" fill="url(#curveGrad)" opacity="0.3"/>
+          <!-- 训练后的曲线 -->
+          <path d="M 110 80 Q 250 85 380 95 T 720 130" fill="none" stroke="#8b3a2f" stroke-width="3"/>
+          <!-- 标签 -->
+          <text x="80" y="30" font-family="Noto Serif SC, serif" font-size="13" fill="#5a514a">肌肉量 / 骨密度</text>
+          <text x="690" y="265" font-family="Noto Serif SC, serif" font-size="13" fill="#5a514a">年龄</text>
+          <text x="100" y="255" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">30</text>
+          <text x="240" y="255" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">40</text>
+          <text x="380" y="255" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">50</text>
+          <text x="380" y="255" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">50</text>
+          <text x="520" y="255" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">60</text>
+          <text x="660" y="255" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">70</text>
+          <!-- 关键点 -->
+          <circle cx="380" cy="130" r="6" fill="#8b3a2f"/>
+          <text x="395" y="125" font-family="Noto Serif SC, serif" font-size="14" fill="#8b3a2f" font-weight="700">现在 · 54岁</text>
+          <text x="395" y="142" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">关键转折点</text>
+          <!-- 图例 -->
+          <g transform="translate(540, 60)">
+            <line x1="0" y1="0" x2="20" y2="0" stroke="#8b3a2f" stroke-width="3"/>
+            <text x="26" y="4" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">坚持训练</text>
+            <line x1="0" y1="20" x2="20" y2="20" stroke="#8a7f73" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="26" y="24" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">不训练自然流失</text>
+          </g>
+        </svg>
+      </div>
+
+      <p>很多人以为,健身是年轻人的事。其实恰恰相反——<strong>54岁,正是开始力量训练最好的时机之一</strong>。原因有三个。</p>
+
+      <h3>一、肌肉流失正在加速</h3>
+      <p>人体的肌肉量在30岁之后就开始自然下降。研究显示,30岁以后每十年会流失 <span class="stat">3%–8%</span> 的肌肉量,50岁之后流失速度进一步加快。如果不主动训练,到了70岁,肌肉量可能已经流失了 <span class="stat">30%以上</span>。</p>
+      <p>肌肉量决定了一个人晚年能不能自己上下楼、能不能自己提重物、摔倒了能不能爬起来。<em>这是老年生活质量的根本</em>。</p>
+
+      <h3>二、女性骨密度面临断崖</h3>
+      <p>女性绝经前后(约45–55岁),由于雌激素下降,骨密度会出现一个快速下降期。这个阶段如果没有外部刺激,骨质疏松的风险会显著升高。</p>
+      <p>而<strong>力量训练是目前被科学反复证实、能够刺激骨密度回升的最有效手段之一</strong>——比单纯补钙片有效得多。</p>
+
+      <h3>三、身体修复能力还很好</h3>
+      <p>54岁的身体,虽然不如年轻时那么"皮实",但仍然具备良好的修复和适应能力。研究显示,即使是 <span class="stat">90岁</span> 的高龄老人,在科学训练 <span class="stat">8周</span> 后,肌肉力量也能显著提升。</p>
+      <p>54岁开始,身体不仅有效果,而且效果非常显著。<strong>越早开始,后面三十年的复利越大</strong>。</p>
+
+      <div class="callout">
+        <div class="callout-title">本章核心</div>
+        <p>肌肉和骨密度,就像一个银行账户。30岁之后每年都在自动扣款,如果不主动存,到了70岁账户就空了。<strong>54岁开始存,完全来得及——而且利息很高。</strong></p>
+      </div>
+    </section>
+
+    <!-- ============ 第二章 ============ -->
+    <section id="ch2">
+      <div class="chapter-num">第 二 章</div>
+      <h2>五个常见误区</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- 思考气泡背景 -->
+          <g opacity="0.4">
+            <ellipse cx="160" cy="150" rx="100" ry="60" fill="none" stroke="#8a7f73" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <ellipse cx="400" cy="150" rx="100" ry="60" fill="none" stroke="#8a7f73" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <ellipse cx="640" cy="150" rx="100" ry="60" fill="none" stroke="#8a7f73" stroke-width="1.5" stroke-dasharray="4 4"/>
+          </g>
+          <!-- 误区文字 -->
+          <text x="160" y="135" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="15" fill="#8a7f73" font-style="italic">"会变成肌肉女"</text>
+          <text x="160" y="160" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="15" fill="#8a7f73" font-style="italic">"伤膝盖伤腰"</text>
+          <text x="160" y="185" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="15" fill="#8a7f73" font-style="italic">"现在练晚了"</text>
+
+          <text x="400" y="155" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="40" fill="#8b3a2f" font-weight="700">⟶</text>
+
+          <text x="640" y="135" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="15" fill="#2a2620">线条紧致</text>
+          <text x="640" y="160" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="15" fill="#2a2620">关节更稳</text>
+          <text x="640" y="185" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="15" fill="#2a2620">效果显著</text>
+
+          <!-- 标签 -->
+          <text x="160" y="240" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#8a7f73" letter-spacing="2">误 区</text>
+          <text x="640" y="240" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#8b3a2f" letter-spacing="2" font-weight="600">真 相</text>
+        </svg>
+      </div>
+
+      <p>开始训练之前,先把那些常见的顾虑说清楚。这些误解,劝退了太多本来可以受益的人。</p>
+
+      <div class="myth">
+        <div class="myth-q">"练了会变成肌肉女"</div>
+        <div class="myth-a">女性体内的雌激素水平,天然限制了肌肉的围度增长。50岁之后雌激素进一步下降,想练成"金刚芭比"反而比年轻男生还难。<strong>普通训练带来的是紧致的线条和饱满的轮廓,不是块头。</strong>那些健美比赛选手的体型,需要极端饮食、十年以上的高强度训练,有时还需要药物辅助——和日常健身完全是两回事。</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"年纪大了,练了伤膝盖伤腰"</div>
+        <div class="myth-a">真相恰恰相反——<strong>不练才伤</strong>。膝盖周围的股四头肌、臀肌如果萎缩,所有的冲击力就会直接砸在关节软骨上。强壮的肌肉,才是关节最好的减震器。同理,核心和背部肌肉是腰椎的"天然护腰"。前提是<em>动作正确、循序渐进</em>,这也是这本指南要解决的问题。</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"走路、跳广场舞就够了吧"</div>
+        <div class="myth-a">不够。<strong>有氧运动 ≠ 力量训练</strong>。走路和广场舞能保护心肺、改善情绪,但<em>无法保住肌肉量,也无法显著提升骨密度</em>。两者作用不同,必须同时做。理想的中老年运动方案是:有氧 + 力量 + 柔韧性,三者缺一不可。</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"现在练太晚了"</div>
+        <div class="myth-a">不晚。多项研究显示,即使是 <strong>90岁</strong> 的老人,科学训练几周后肌肉力量也能显著提升。54岁不是"晚了",是<strong>黄金起点</strong>——身体修复能力还很好,习惯一旦养成,后面三十年都受益。</div>
+      </div>
+
+      <div class="myth">
+        <div class="myth-q">"必须去健身房才能练"</div>
+        <div class="myth-a">不必。力量训练的核心原理是<strong>渐进负荷</strong>——逐步增加阻力让肌肉适应,而不是健身房的氛围。一个家庭健身房,只要有<em>哑铃、杠铃、龙门架</em>这类基础器械,完全足够练到70岁、80岁所需要的全部肌肉量。专业运动员才需要那些复杂的高级设备。</div>
+      </div>
+    </section>
+
+    <!-- ============ 第三章 ============ -->
+    <section id="ch3">
+      <div class="chapter-num">第 三 章</div>
+      <h2>力量训练的七大好处</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- 中心 -->
+          <circle cx="400" cy="150" r="50" fill="#8b3a2f"/>
+          <text x="400" y="146" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#ffffff" font-weight="700">力量</text>
+          <text x="400" y="166" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#ffffff" font-weight="700">训练</text>
+
+          <!-- 七个放射圆 -->
+          <g font-family="Noto Sans SC, sans-serif" font-size="12" fill="#2a2620">
+            <!-- 上 -->
+            <line x1="400" y1="100" x2="400" y2="55" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="400" cy="40" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="400" y="44" text-anchor="middle">防摔倒</text>
+
+            <!-- 右上 -->
+            <line x1="443" y1="125" x2="500" y2="90" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="525" cy="80" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="525" y="78" text-anchor="middle">防骨</text>
+            <text x="525" y="92" text-anchor="middle">质疏松</text>
+
+            <!-- 右 -->
+            <line x1="450" y1="150" x2="510" y2="150" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="540" cy="150" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="540" y="147" text-anchor="middle">保肌</text>
+            <text x="540" y="161" text-anchor="middle">肉量</text>
+
+            <!-- 右下 -->
+            <line x1="443" y1="175" x2="500" y2="210" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="525" cy="220" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="525" y="217" text-anchor="middle">防代</text>
+            <text x="525" y="231" text-anchor="middle">谢病</text>
+
+            <!-- 左下 -->
+            <line x1="357" y1="175" x2="300" y2="210" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="275" cy="220" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="275" y="217" text-anchor="middle">护认</text>
+            <text x="275" y="231" text-anchor="middle">知力</text>
+
+            <!-- 左 -->
+            <line x1="350" y1="150" x2="290" y2="150" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="260" cy="150" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="260" y="147" text-anchor="middle">改善</text>
+            <text x="260" y="161" text-anchor="middle">睡眠</text>
+
+            <!-- 左上 -->
+            <line x1="357" y1="125" x2="300" y2="90" stroke="#b9695a" stroke-width="1.5"/>
+            <circle cx="275" cy="80" r="22" fill="#ffffff" stroke="#b9695a" stroke-width="1.5"/>
+            <text x="275" y="78" text-anchor="middle">独立</text>
+            <text x="275" y="92" text-anchor="middle">自主</text>
+          </g>
+
+          <text x="680" y="50" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8a7f73" letter-spacing="2">七 大 好 处</text>
+        </svg>
+      </div>
+
+      <p>力量训练对中老年人的价值,远远超过"塑形"或"减肥"。它是一项被医学界反复证实、能够<strong>实质性改善晚年生活质量</strong>的健康投资。</p>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit-num">01</div>
+          <div>
+            <div class="benefit-title">大幅降低跌倒风险</div>
+            <div class="benefit-desc">老年人髋部骨折后一年内的死亡率可达 20–30%。强壮的下肢肌肉、良好的核心稳定性、敏捷的反应速度——这些都是力量训练直接带来的,是预防跌倒最有效的手段。</div>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-num">02</div>
+          <div>
+            <div class="benefit-title">改善骨密度,对抗骨质疏松</div>
+            <div class="benefit-desc">负重训练通过对骨骼施加机械应力,直接刺激骨细胞活性。这是目前唯一被反复证实、能够逆转骨密度流失的非药物手段,对绝经后女性尤其重要。</div>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-num">03</div>
+          <div>
+            <div class="benefit-title">对抗肌肉流失</div>
+            <div class="benefit-desc">中老年肌肉流失症(肌少症)直接关系到生活自理能力。训练能保留甚至增加肌肉量,让你在70岁、80岁依然能自己起身、自己行走、自己拎东西。</div>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-num">04</div>
+          <div>
+            <div class="benefit-title">改善代谢健康</div>
+            <div class="benefit-desc">肌肉是身体最大的"血糖仓库"。肌肉量增加,胰岛素敏感性提高,2型糖尿病风险大幅下降。同时改善血压、血脂、心血管健康。</div>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-num">05</div>
+          <div>
+            <div class="benefit-title">保护认知,降低痴呆风险</div>
+            <div class="benefit-desc">力量训练促进大脑分泌 BDNF(脑源性神经营养因子),与降低老年痴呆风险直接相关。研究显示,腿部力量与晚年认知功能呈显著正相关——<em>腿上的力量,和脑子的清醒,是连在一起的。</em></div>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-num">06</div>
+          <div>
+            <div class="benefit-title">改善睡眠、情绪、精力</div>
+            <div class="benefit-desc">规律训练是天然的抗抑郁、抗焦虑手段。更年期前后的失眠、烦躁、情绪低落,通过训练能得到明显缓解。日常精力水平也会显著提升。</div>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-num">07</div>
+          <div>
+            <div class="benefit-title">维持生活独立性</div>
+            <div class="benefit-desc">这是所有好处的总和。74岁的时候自己拖着行李去京都,走两万多步不累;78岁还能在小樽运河边慢慢散步;80岁能自己起床、自己做饭、自己出门。<strong>身体不是限制条件</strong>,这才是退休真正的意义。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 第四章 ============ -->
+    <section id="ch4">
+      <div class="chapter-num">第 四 章</div>
+      <h2>训练前的热身</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- 时间线 -->
+          <line x1="80" y1="150" x2="720" y2="150" stroke="#e5dccc" stroke-width="2"/>
+
+          <!-- 阶段 1 -->
+          <circle cx="150" cy="150" r="38" fill="#ffffff" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="150" y="146" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#8b3a2f" font-weight="700">升温</text>
+          <text x="150" y="162" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">3-5 分</text>
+          <text x="150" y="220" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#5a514a">心率上升</text>
+
+          <!-- 阶段 2 -->
+          <circle cx="320" cy="150" r="38" fill="#ffffff" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="320" y="146" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#8b3a2f" font-weight="700">活动</text>
+          <text x="320" y="162" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">5 分</text>
+          <text x="320" y="220" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#5a514a">关节绕环</text>
+
+          <!-- 阶段 3 - 最伟大的拉伸,加粗显示 -->
+          <circle cx="490" cy="150" r="42" fill="#8b3a2f" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="490" y="144" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#ffffff" font-weight="700">最伟大</text>
+          <text x="490" y="160" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#ffffff" font-weight="700">的拉伸</text>
+          <text x="490" y="220" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#8b3a2f" font-weight="600">激活全身</text>
+
+          <!-- 阶段 4 -->
+          <circle cx="660" cy="150" r="38" fill="#ffffff" stroke="#8b3a2f" stroke-width="2"/>
+          <text x="660" y="146" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#8b3a2f" font-weight="700">激活</text>
+          <text x="660" y="162" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">3-5 分</text>
+          <text x="660" y="220" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#5a514a">唤醒肌肉</text>
+
+          <!-- 阶段标签 -->
+          <text x="150" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8a7f73">第一</text>
+          <text x="320" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8a7f73">第二</text>
+          <text x="490" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8a7f73">第三</text>
+          <text x="660" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8a7f73">第四</text>
+
+          <text x="400" y="40" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#8b3a2f" letter-spacing="3" font-weight="600">10–13 分 钟 热 身 流 程</text>
+
+          <!-- 箭头 -->
+          <path d="M 195 150 L 278 150" stroke="#b9695a" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 365 150 L 444 150" stroke="#b9695a" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 537 150 L 618 150" stroke="#b9695a" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#b9695a"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+
+      <p>热身不是"可有可无的暖场",它是训练的一部分。尤其是 50 岁之后,<strong>热身做不做、做得好不好,直接决定了会不会受伤、训练效果好不好</strong>。</p>
+
+      <h3>为什么必须热身</h3>
+
+      <h4>① 让肌肉"醒过来"</h4>
+      <p>人睡了一晚、坐了一上午之后,肌肉是"凉"的、纤维是僵的。直接上重量,就像冬天没预热就猛踩油门——发动机会受损。热身让肌肉温度升高 1–2 度,弹性增加,受伤风险大幅下降。</p>
+
+      <h4>② 让关节"上油"</h4>
+      <p>关节里有一种叫"滑液"的物质,作用类似机器里的润滑油。久坐之后滑液分泌减少、关节干涩,直接深蹲、推举,软骨之间是干磨。热身的关节绕环动作,就是让滑液重新分泌、铺满关节面。</p>
+
+      <h4>③ 让心脏"提前进入状态"</h4>
+      <p>50岁之后,心血管系统对突然的高强度反应不如年轻时灵敏。热身让心率从静息状态(60–70)平稳爬升到训练状态(100–120),给心脏一个缓冲,<strong>避免血压骤升</strong>——这一点对中老年人尤其重要。</p>
+
+      <h4>④ 让大脑和肌肉"接上线"</h4>
+      <p>力量训练不只是肌肉用力,是神经系统指挥肌肉用力。热身的轻重量练习,是在告诉大脑:"等下我们要做这个动作,先把指令通路打通。"这样正式训练时动作更准、发力更稳,也更不容易因为代偿而受伤。</p>
+
+      <h3>10–13 分钟热身流程</h3>
+      <p>热身分四个阶段。每次训练前,完整做完这四步再开始正式训练。</p>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 第一阶段 GIF · gifs/warmup-1.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">第一阶段 · 全身升温</div>
+          <div class="move-target">3–5 分钟 · 提升心率和体温</div>
+          <ul class="move-points">
+            <li>原地踏步,逐渐加快节奏</li>
+            <li>低冲击开合跳(脚不离地的版本)</li>
+            <li>慢速登山者(站姿摆臂提膝)</li>
+          </ul>
+          <div class="move-warn"><strong>标准:</strong>身体微微出汗,但还没气喘。这就对了。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 第二阶段 GIF · gifs/warmup-2.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">第二阶段 · 动态拉伸 + 关节活动</div>
+          <div class="move-target">5 分钟 · 让关节"上油"</div>
+          <ul class="move-points">
+            <li>肩部绕环(前后各 10 次)</li>
+            <li>髋部绕环(左右各 10 次)</li>
+            <li>猫牛式(活动脊柱,8–10 次)</li>
+            <li>弓步转体(左右各 6 次)</li>
+            <li>手臂大幅划圈(前后各 10 次)</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>动态的、有节奏的活动,不是静态压腿那种拉伸。静态拉伸放在训练后做。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 最伟大的拉伸 GIF · gifs/worlds-greatest-stretch.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">第三阶段 · 最伟大的拉伸(World's Greatest Stretch)</div>
+          <div class="move-target">2–3 分钟 · 一个动作激活全身</div>
+          <p style="font-size: 15px; color: var(--ink-soft); margin-bottom: 14px;">这个动作被称为"最伟大的拉伸",原因是<strong>一个动作就能同时活动髋、胸、肩、脊柱、踝</strong>这五大关节,激活全身主要肌群。是热身阶段性价比最高的一个动作。</p>
+          <ul class="move-points">
+            <li>从站姿开始,右腿向前迈一大步成弓步</li>
+            <li>左手撑地,在右脚内侧</li>
+            <li>右手向上举,身体向右上方旋转打开胸腔</li>
+            <li>眼睛跟随右手,感受胸、肩、髋的拉伸</li>
+            <li>右手放下、收回站立,换左腿重复</li>
+            <li>左右各 5–6 次</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>动作慢、节奏稳;转体时不憋气;膝盖有问题者可以把后腿膝盖落地做。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 第四阶段 GIF · gifs/warmup-4.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">第四阶段 · 激活训练</div>
+          <div class="move-target">3–5 分钟 · 唤醒目标肌群</div>
+          <ul class="move-points">
+            <li>今天练腿 → 徒手深蹲 10–15 下</li>
+            <li>今天练胸 → 弹力带夹胸 10–15 下</li>
+            <li>今天练背 → 徒手划船动作 10–15 下</li>
+            <li>每个激活动作做 1–2 组,极轻强度</li>
+          </ul>
+          <div class="move-warn"><strong>标准:</strong>让目标肌肉先"打个招呼",正式组发力会更顺、更稳。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 第五章 ============ -->
+    <section id="ch5">
+      <div class="chapter-num">第 五 章</div>
+      <h2>认识身体的四大肌群</h2>
+
+      <p>在开始动作之前,先了解一下身体的"肌肉地图"。<strong>知道自己在练什么,才知道自己在为什么而练</strong>。</p>
+
+      <p>人体有几百块肌肉,但对中老年人来说,真正重要的是<em>四大肌群</em>。它们占据了全身 70% 以上的肌肉量,直接关系到日常生活能力。把它们练好,小肌群也会顺带受益。</p>
+
+      <div class="muscle-map">
+        <svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#fbf7ef"/>
+              <stop offset="1" stop-color="#ede4d3"/>
+            </linearGradient>
+          </defs>
+
+          <!-- ========== 正面人体 ========== -->
+          <g transform="translate(50, 30)">
+            <!-- 身体轮廓 -->
+            <!-- 头 -->
+            <ellipse cx="100" cy="35" rx="22" ry="26" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 脖子 -->
+            <path d="M 88 58 L 88 70 Q 100 75 112 70 L 112 58" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 躯干 -->
+            <path d="M 70 75 Q 60 80 55 95 L 50 130 Q 50 160 55 200 Q 60 240 65 270 L 75 280 L 125 280 L 135 270 Q 140 240 145 200 Q 150 160 150 130 L 145 95 Q 140 80 130 75 Q 115 78 100 78 Q 85 78 70 75 Z"
+                  fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 左臂 -->
+            <path d="M 55 95 Q 40 105 35 135 Q 32 170 35 200 Q 38 215 40 230"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 55 130 Q 45 160 42 200 Q 40 220 38 232"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 右臂 -->
+            <path d="M 145 95 Q 160 105 165 135 Q 168 170 165 200 Q 162 215 160 230"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 145 130 Q 155 160 158 200 Q 160 220 162 232"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 左腿 -->
+            <path d="M 75 280 Q 70 320 72 360 L 75 420 L 88 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 99 380 L 96 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 右腿 -->
+            <path d="M 125 280 Q 130 320 128 360 L 125 420 L 112 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 101 380 L 104 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+
+            <!-- ========== 肌群标识(正面) ========== -->
+            <!-- 胸部 -->
+            <path d="M 75 90 Q 90 88 100 92 Q 110 88 125 90 Q 130 110 125 130 Q 110 135 100 132 Q 90 135 75 130 Q 70 110 75 90 Z"
+                  fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <!-- 肩 左 -->
+            <ellipse cx="60" cy="95" rx="12" ry="14" fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <!-- 肩 右 -->
+            <ellipse cx="140" cy="95" rx="12" ry="14" fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <!-- 核心(腹) -->
+            <path d="M 78 145 Q 100 142 122 145 Q 125 175 122 210 Q 100 215 78 210 Q 75 175 78 145 Z"
+                  fill="#d4a574" opacity="0.6" stroke="#a87a4b" stroke-width="1"/>
+            <line x1="100" y1="145" x2="100" y2="212" stroke="#a87a4b" stroke-width="0.8" opacity="0.6"/>
+            <line x1="80" y1="165" x2="120" y2="165" stroke="#a87a4b" stroke-width="0.8" opacity="0.6"/>
+            <line x1="80" y1="185" x2="120" y2="185" stroke="#a87a4b" stroke-width="0.8" opacity="0.6"/>
+            <!-- 腿 - 股四头肌 -->
+            <path d="M 75 285 Q 68 320 72 360 L 78 410 Q 85 405 90 400 L 95 370 Q 98 320 96 285 Z"
+                  fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+            <path d="M 105 285 Q 102 320 104 370 L 110 400 Q 115 405 122 410 L 128 360 Q 132 320 125 285 Z"
+                  fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+
+            <!-- 标题 -->
+            <text x="100" y="500" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#5a514a" font-weight="600">正面</text>
+          </g>
+
+          <!-- ========== 背面人体 ========== -->
+          <g transform="translate(350, 30)">
+            <!-- 头 -->
+            <ellipse cx="100" cy="35" rx="22" ry="26" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 脖子 -->
+            <path d="M 88 58 L 88 70 Q 100 75 112 70 L 112 58" fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 躯干 -->
+            <path d="M 70 75 Q 60 80 55 95 L 50 130 Q 50 160 55 200 Q 60 240 65 270 L 75 280 L 125 280 L 135 270 Q 140 240 145 200 Q 150 160 150 130 L 145 95 Q 140 80 130 75 Q 115 78 100 78 Q 85 78 70 75 Z"
+                  fill="url(#bodyGrad)" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 手臂 -->
+            <path d="M 55 95 Q 40 105 35 135 Q 32 170 35 200 Q 38 215 40 230"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 55 130 Q 45 160 42 200 Q 40 220 38 232"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 145 95 Q 160 105 165 135 Q 168 170 165 200 Q 162 215 160 230"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 145 130 Q 155 160 158 200 Q 160 220 162 232"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <!-- 腿 -->
+            <path d="M 75 280 Q 70 320 72 360 L 75 420 L 88 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 99 380 L 96 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 125 280 Q 130 320 128 360 L 125 420 L 112 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+            <path d="M 100 280 L 101 380 L 104 460"
+                  fill="none" stroke="#8a7f73" stroke-width="1.2"/>
+
+            <!-- ========== 肌群标识(背面) ========== -->
+            <!-- 斜方肌 -->
+            <path d="M 80 78 Q 100 85 120 78 L 130 110 Q 100 115 70 110 Z"
+                  fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <!-- 背阔肌 -->
+            <path d="M 65 115 Q 100 120 135 115 L 140 175 Q 130 195 100 200 Q 70 195 60 175 Z"
+                  fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <!-- 后肩 -->
+            <ellipse cx="60" cy="100" rx="11" ry="13" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <ellipse cx="140" cy="100" rx="11" ry="13" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <!-- 臀部 -->
+            <path d="M 70 245 Q 100 240 130 245 Q 135 275 130 290 L 100 295 L 70 290 Q 65 275 70 245 Z"
+                  fill="#5a8a6f" opacity="0.6" stroke="#3d6b54" stroke-width="1"/>
+            <!-- 大腿后侧 -->
+            <path d="M 75 295 Q 70 330 75 370 L 80 400 Q 88 395 92 390 L 96 360 Q 98 320 95 295 Z"
+                  fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+            <path d="M 105 295 Q 102 320 104 360 L 108 390 Q 112 395 120 400 L 125 370 Q 130 330 125 295 Z"
+                  fill="#5a8a6f" opacity="0.55" stroke="#3d6b54" stroke-width="1"/>
+
+            <text x="100" y="500" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#5a514a" font-weight="600">背面</text>
+          </g>
+
+          <!-- ========== 图例(中间) ========== -->
+          <g transform="translate(258, 110)">
+            <!-- 胸肩 -->
+            <rect x="0" y="0" width="14" height="14" fill="#8b3a2f" opacity="0.5" stroke="#8b3a2f" stroke-width="1"/>
+            <text x="20" y="11" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#2a2620" font-weight="600">胸 · 肩</text>
+
+            <!-- 背 -->
+            <rect x="0" y="50" width="14" height="14" fill="#3a6a8b" opacity="0.55" stroke="#1f4a6b" stroke-width="1"/>
+            <text x="20" y="61" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#2a2620" font-weight="600">背 部</text>
+
+            <!-- 核心 -->
+            <rect x="0" y="100" width="14" height="14" fill="#d4a574" opacity="0.6" stroke="#a87a4b" stroke-width="1"/>
+            <text x="20" y="111" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#2a2620" font-weight="600">核 心</text>
+
+            <!-- 腿臀 -->
+            <rect x="0" y="150" width="14" height="14" fill="#5a8a6f" opacity="0.6" stroke="#3d6b54" stroke-width="1"/>
+            <text x="20" y="161" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#2a2620" font-weight="600">腿 · 臀</text>
+
+            <text x="35" y="220" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="11" fill="#8a7f73" letter-spacing="2">四 大 肌 群</text>
+          </g>
+        </svg>
+        <div class="muscle-map-caption">人体四大肌群分布图 · 占全身肌肉量 70% 以上</div>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">① 腿部肌群</div>
+        <div class="muscle-tag">臀大肌 · 股四头肌 · 腘绳肌</div>
+        <dl>
+          <dt>位置</dt><dd>臀部、大腿前侧、大腿后侧</dd>
+          <dt>功能</dt><dd>站立、行走、爬楼、下蹲、保持平衡</dd>
+          <dt>不练的代价</dt><dd>30岁后腿部肌肉流失最快;70岁腿没劲,意味着上不了楼梯、起不来沙发、摔倒后爬不起来</dd>
+          <dt>核心价值</dt><dd><strong>这是"走万步不累"最直接相关的肌群。腿强,世界就大。</strong></dd>
+          <dt>主要动作</dt><dd>深蹲、硬拉、弓步</dd>
+        </dl>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">② 背部肌群</div>
+        <div class="muscle-tag">背阔肌 · 斜方肌 · 菱形肌</div>
+        <dl>
+          <dt>位置</dt><dd>整个后背,从肩到腰</dd>
+          <dt>功能</dt><dd>维持脊柱稳定、保持挺拔、提拉重物、保护腰椎</dd>
+          <dt>不练的代价</dt><dd>驼背、圆肩、含胸、慢性腰背痛——这是中老年女性最常见的体态问题</dd>
+          <dt>核心价值</dt><dd><strong>站姿挺拔显年轻、腰不痛、能自己提行李箱过机场</strong></dd>
+          <dt>主要动作</dt><dd>龙门架下拉、龙门架划船、硬拉</dd>
+        </dl>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">③ 胸部 + 肩部肌群</div>
+        <div class="muscle-tag">胸大肌 · 三角肌</div>
+        <dl>
+          <dt>位置</dt><dd>胸前、肩膀</dd>
+          <dt>功能</dt><dd>推、抬、举——所有"把东西从身边推出去"的动作</dd>
+          <dt>不练的代价</dt><dd>开不动重的门、抱不动行李、推不动行李箱、肩膀僵硬疼痛</dd>
+          <dt>核心价值</dt><dd><strong>日常生活的"上肢自由",肩颈不僵不痛</strong></dd>
+          <dt>主要动作</dt><dd>杠铃卧推、哑铃推举、龙门架夹胸</dd>
+        </dl>
+      </div>
+
+      <div class="muscle">
+        <div class="muscle-name">④ 核心肌群</div>
+        <div class="muscle-tag">腹肌 · 下背部 · 深层核心</div>
+        <dl>
+          <dt>位置</dt><dd>躯干正中,从胸下到骨盆</dd>
+          <dt>功能</dt><dd>稳定脊柱、传递力量、保持平衡、保护内脏</dd>
+          <dt>不练的代价</dt><dd>腰痛、平衡差、容易闪腰、所有动作都不稳</dd>
+          <dt>核心价值</dt><dd><strong>防摔倒的核心保险,所有其他动作的基础</strong></dd>
+          <dt>主要动作</dt><dd>平板支撑、死虫、鸟狗、侧平板</dd>
+        </dl>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">为什么重点练大肌群</div>
+        <p>大肌群占身体 70% 以上的肌肉量,练它们对<strong>整体代谢、骨密度、激素水平</strong>影响最大。而且大肌群的动作大多是"复合动作"——一个动作同时练多块肌肉,效率高。54岁之后时间和恢复力都很宝贵,<em>把好钢用在刀刃上</em>。</p>
+      </div>
+    </section>
+
+    <!-- ============ 第六章 ============ -->
+    <section id="ch6">
+      <div class="chapter-num">第 六 章</div>
+      <h2>认识家庭健身房</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- ========== 龙门架 ========== -->
+          <g transform="translate(80, 60)">
+            <!-- 框架 -->
+            <rect x="0" y="0" width="6" height="180" fill="#5a514a"/>
+            <rect x="120" y="0" width="6" height="180" fill="#5a514a"/>
+            <rect x="0" y="0" width="126" height="6" fill="#5a514a"/>
+            <rect x="0" y="174" width="126" height="10" fill="#5a514a"/>
+            <!-- 滑轮 -->
+            <circle cx="20" cy="20" r="6" fill="none" stroke="#8a7f73" stroke-width="2"/>
+            <circle cx="106" cy="20" r="6" fill="none" stroke="#8a7f73" stroke-width="2"/>
+            <!-- 钢索 -->
+            <line x1="20" y1="26" x2="20" y2="120" stroke="#8a7f73" stroke-width="1"/>
+            <line x1="106" y1="26" x2="106" y2="120" stroke="#8a7f73" stroke-width="1"/>
+            <!-- 把手 -->
+            <rect x="14" y="120" width="12" height="20" fill="#8b3a2f" rx="2"/>
+            <rect x="100" y="120" width="12" height="20" fill="#8b3a2f" rx="2"/>
+            <!-- 重量片堆栈 -->
+            <rect x="40" y="60" width="46" height="80" fill="#ede4d3" stroke="#8a7f73" stroke-width="1"/>
+            <line x1="40" y1="75" x2="86" y2="75" stroke="#8a7f73" stroke-width="0.5"/>
+            <line x1="40" y1="90" x2="86" y2="90" stroke="#8a7f73" stroke-width="0.5"/>
+            <line x1="40" y1="105" x2="86" y2="105" stroke="#8a7f73" stroke-width="0.5"/>
+            <line x1="40" y1="120" x2="86" y2="120" stroke="#8a7f73" stroke-width="0.5"/>
+
+            <text x="63" y="210" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#2a2620" font-weight="600">龙门架</text>
+            <text x="63" y="228" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">轨迹稳定 · 安全</text>
+          </g>
+
+          <!-- ========== 杠铃 ========== -->
+          <g transform="translate(280, 130)">
+            <!-- 杠 -->
+            <rect x="0" y="35" width="240" height="6" fill="#5a514a" rx="3"/>
+            <!-- 左侧片 -->
+            <rect x="20" y="15" width="10" height="46" fill="#2a2620" rx="2"/>
+            <rect x="32" y="10" width="14" height="56" fill="#8b3a2f" rx="2"/>
+            <rect x="48" y="5" width="16" height="66" fill="#2a2620" rx="2"/>
+            <!-- 右侧片 -->
+            <rect x="210" y="15" width="10" height="46" fill="#2a2620" rx="2"/>
+            <rect x="194" y="10" width="14" height="56" fill="#8b3a2f" rx="2"/>
+            <rect x="176" y="5" width="16" height="66" fill="#2a2620" rx="2"/>
+            <!-- 卡扣 -->
+            <rect x="65" y="32" width="4" height="12" fill="#8a7f73"/>
+            <rect x="171" y="32" width="4" height="12" fill="#8a7f73"/>
+
+            <text x="120" y="105" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#2a2620" font-weight="600">杠铃</text>
+            <text x="120" y="123" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">大重量 · 复合动作</text>
+          </g>
+
+          <!-- ========== 哑铃 ========== -->
+          <g transform="translate(580, 140)">
+            <!-- 哑铃 -->
+            <rect x="40" y="20" width="60" height="8" fill="#5a514a" rx="2"/>
+            <ellipse cx="35" cy="24" rx="14" ry="20" fill="#2a2620"/>
+            <ellipse cx="105" cy="24" rx="14" ry="20" fill="#2a2620"/>
+            <ellipse cx="35" cy="24" rx="10" ry="14" fill="#8b3a2f"/>
+            <ellipse cx="105" cy="24" rx="10" ry="14" fill="#8b3a2f"/>
+            <!-- 第二个 -->
+            <rect x="40" y="65" width="60" height="6" fill="#5a514a" rx="2"/>
+            <ellipse cx="35" cy="68" rx="11" ry="16" fill="#2a2620"/>
+            <ellipse cx="105" cy="68" rx="11" ry="16" fill="#2a2620"/>
+            <ellipse cx="35" cy="68" rx="7" ry="11" fill="#8b3a2f"/>
+            <ellipse cx="105" cy="68" rx="7" ry="11" fill="#8b3a2f"/>
+
+            <text x="70" y="115" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#2a2620" font-weight="600">哑铃</text>
+            <text x="70" y="133" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#8a7f73">灵活 · 适合各阶段</text>
+          </g>
+
+          <text x="400" y="30" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8a7f73" letter-spacing="3">家 庭 健 身 房 三 件 套</text>
+        </svg>
+      </div>
+
+      <p>这个家庭健身房有三件核心器械:<strong>龙门架、杠铃、哑铃</strong>。三者搭配,可以覆盖中老年人需要的全部主要动作。下面逐一介绍它们的特点和使用注意事项。</p>
+
+      <h3>龙门架(Cable Machine)</h3>
+      <p>龙门架是一对滑轮系统,通过钢索提供阻力。它最大的优势是<strong>阻力方向稳定、轨迹安全</strong>,即使一个人训练也不容易受伤。</p>
+      <ul>
+        <li><strong>能练什么</strong>:背部下拉、坐姿划船、夹胸、面拉、三头屈伸、二头弯举、臀推等</li>
+        <li><strong>适合谁</strong>:零基础新手、关节稳定性较差的人、单独训练时</li>
+        <li><strong>安全要点</strong>:每次训练前检查钢索连接是否牢固;调节滑轮高度时锁好插销;动作过程中保持核心稳定</li>
+      </ul>
+
+      <h3>杠铃(Barbell)</h3>
+      <p>杠铃是力量训练中"重量天花板"最高的工具,可以加载较大的重量,适合练大肌群、大重量、复合动作。</p>
+      <ul>
+        <li><strong>能练什么</strong>:深蹲、硬拉、卧推、推举、划船</li>
+        <li><strong>适合谁</strong>:基础动作模式稳定后的进阶训练</li>
+        <li><strong>安全要点</strong>:深蹲、卧推必须使用<strong>保护架或保护杠</strong>;杠铃片务必用卡扣固定;<em>大重量动作建议有人在旁辅助</em></li>
+      </ul>
+
+      <h3>哑铃(Dumbbell)</h3>
+      <p>哑铃是最灵活的器械,左右独立、轨迹自由。对中老年人来说,哑铃训练能<strong>同时改善力量和稳定性</strong>,而且更容易找到舒适的发力角度。</p>
+      <ul>
+        <li><strong>能练什么</strong>:几乎所有动作——推举、卧推、划船、弯举、弓步、侧平举、飞鸟等</li>
+        <li><strong>适合谁</strong>:任何阶段,尤其是入门期和恢复期</li>
+        <li><strong>安全要点</strong>:从小重量开始;放下哑铃时不要直接砸地面;练习坐姿动作时背部贴稳靠背</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">入门建议</div>
+        <p>新手前 4 周建议<strong>以哑铃为主、龙门架为辅</strong>,等动作模式稳定、身体适应训练节奏后,再逐步加入杠铃训练。<em>不要一上来就追求大重量</em>——动作质量永远比重量重要。</p>
+      </div>
+    </section>
+
+    <!-- ============ 第七章 ============ -->
+    <section id="ch7">
+      <div class="chapter-num">第 七 章</div>
+      <h2>核心动作图解</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- 8 个动作图标网格 -->
+          <g font-family="Noto Serif SC, serif" font-size="11" fill="#2a2620" text-anchor="middle">
+            <!-- 深蹲 -->
+            <g transform="translate(100, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <!-- 深蹲小人 -->
+              <circle cx="0" cy="-15" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-10" x2="0" y2="5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="5" x2="-10" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="5" x2="10" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-10" y1="15" x2="-10" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="10" y1="15" x2="10" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-8" y1="-10" x2="-12" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="8" y1="-10" x2="12" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <text y="50">深蹲</text>
+            </g>
+            <!-- 硬拉 -->
+            <g transform="translate(220, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="0" cy="-15" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-10" x2="-5" y2="5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-5" y1="5" x2="-5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="5" y1="5" x2="5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-5" y1="0" x2="-12" y2="12" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="5" y1="0" x2="12" y2="12" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-14" y1="14" x2="14" y2="14" stroke="#2a2620" stroke-width="2.5"/>
+              <text y="50">硬拉</text>
+            </g>
+            <!-- 卧推 -->
+            <g transform="translate(340, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <rect x="-15" y="5" width="30" height="3" fill="#8a7f73"/>
+              <line x1="-12" y1="5" x2="-12" y2="15" stroke="#8a7f73" stroke-width="1.5"/>
+              <line x1="12" y1="5" x2="12" y2="15" stroke="#8a7f73" stroke-width="1.5"/>
+              <ellipse cx="0" cy="0" rx="10" ry="3" fill="#8b3a2f"/>
+              <line x1="-15" y1="-8" x2="15" y2="-8" stroke="#2a2620" stroke-width="2.5"/>
+              <circle cx="-15" cy="-8" r="4" fill="#2a2620"/>
+              <circle cx="15" cy="-8" r="4" fill="#2a2620"/>
+              <text y="50">卧推</text>
+            </g>
+            <!-- 推举 -->
+            <g transform="translate(460, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="0" cy="-12" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-7" x2="0" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="-2" x2="-10" y2="-15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="-2" x2="10" y2="-15" stroke="#8b3a2f" stroke-width="2"/>
+              <circle cx="-12" cy="-18" r="4" fill="#2a2620"/>
+              <circle cx="12" cy="-18" r="4" fill="#2a2620"/>
+              <text y="50">推举</text>
+            </g>
+            <!-- 下拉 -->
+            <g transform="translate(580, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <line x1="-15" y1="-22" x2="15" y2="-22" stroke="#2a2620" stroke-width="2"/>
+              <line x1="-12" y1="-22" x2="-8" y2="-5" stroke="#8a7f73" stroke-width="1.5"/>
+              <line x1="12" y1="-22" x2="8" y2="-5" stroke="#8a7f73" stroke-width="1.5"/>
+              <circle cx="0" cy="0" r="4" fill="#8b3a2f"/>
+              <line x1="0" y1="4" x2="0" y2="18" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-8" y1="-5" x2="0" y2="2" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="8" y1="-5" x2="0" y2="2" stroke="#8b3a2f" stroke-width="2"/>
+              <text y="50">下拉</text>
+            </g>
+            <!-- 划船 -->
+            <g transform="translate(700, 60)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="-5" cy="-10" r="5" fill="#8b3a2f"/>
+              <line x1="-5" y1="-5" x2="-5" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-5" y1="0" x2="8" y2="0" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="8" y1="0" x2="14" y2="-3" stroke="#2a2620" stroke-width="2.5"/>
+              <text y="50">划船</text>
+            </g>
+            <!-- 平板 -->
+            <g transform="translate(280, 160)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <line x1="-18" y1="5" x2="18" y2="-5" stroke="#8b3a2f" stroke-width="3"/>
+              <circle cx="18" cy="-5" r="4" fill="#8b3a2f"/>
+              <line x1="-18" y1="5" x2="-18" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-12" y1="5" x2="-12" y2="15" stroke="#8b3a2f" stroke-width="2"/>
+              <text y="50">平板支撑</text>
+            </g>
+            <!-- 侧平举 -->
+            <g transform="translate(440, 160)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <circle cx="0" cy="-13" r="5" fill="#8b3a2f"/>
+              <line x1="0" y1="-8" x2="0" y2="10" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="10" x2="-5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="0" y1="10" x2="5" y2="20" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="-2" y1="-5" x2="-18" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <line x1="2" y1="-5" x2="18" y2="-5" stroke="#8b3a2f" stroke-width="2"/>
+              <circle cx="-20" cy="-5" r="3" fill="#2a2620"/>
+              <circle cx="20" cy="-5" r="3" fill="#2a2620"/>
+              <text y="50">侧平举</text>
+            </g>
+            <!-- 飞鸟 -->
+            <g transform="translate(600, 160)">
+              <circle cx="0" cy="0" r="32" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5"/>
+              <line x1="-18" y1="5" x2="18" y2="-5" stroke="#8a7f73" stroke-width="2.5"/>
+              <ellipse cx="0" cy="0" rx="6" ry="2.5" fill="#8b3a2f"/>
+              <path d="M -3 -2 Q -10 -10 -16 -8" fill="none" stroke="#8b3a2f" stroke-width="2"/>
+              <path d="M 3 -2 Q 10 -10 16 -8" fill="none" stroke="#8b3a2f" stroke-width="2"/>
+              <circle cx="-18" cy="-8" r="3" fill="#2a2620"/>
+              <circle cx="18" cy="-8" r="3" fill="#2a2620"/>
+              <text y="50">飞鸟</text>
+            </g>
+          </g>
+          <text x="400" y="200" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#8a7f73" letter-spacing="2">九 个 核 心 动 作 · 覆 盖 全 身</text>
+        </svg>
+      </div>
+
+      <p>下面这九个动作,涵盖了四大肌群最重要的训练。把它们练好,就足以应对未来三十年的健康需求。<strong>每个动作都先看 GIF、再看要点、最后看注意事项</strong>。</p>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 哑铃高脚杯深蹲 GIF · gifs/goblet-squat.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">1. 哑铃高脚杯深蹲</div>
+          <div class="move-target">目标 · 腿部 + 核心</div>
+          <ul class="move-points">
+            <li>双手捧一只哑铃于胸前,肘部自然下垂</li>
+            <li>双脚与肩同宽,脚尖略微外展</li>
+            <li>下蹲时<strong>髋部先后坐</strong>,膝盖跟随脚尖方向</li>
+            <li>下蹲到大腿与地面平行(或个人最低舒适点)</li>
+            <li>起立时脚跟用力,挤压臀部站直</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>膝盖不要内扣;保持腰背挺直,不要弓背;呼吸:下蹲吸气、起立呼气。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 哑铃罗马尼亚硬拉 GIF · gifs/rdl.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">2. 哑铃罗马尼亚硬拉</div>
+          <div class="move-target">目标 · 臀部 + 大腿后侧 + 下背</div>
+          <ul class="move-points">
+            <li>双手各持一只哑铃,自然下垂于身前</li>
+            <li>双脚与髋同宽,膝盖<strong>微屈但不动</strong></li>
+            <li>髋部向后推送,身体前倾,哑铃沿大腿前侧下滑</li>
+            <li>感受大腿后侧拉伸,下放到中小腿位置</li>
+            <li>挤压臀部,起身回到站立</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>全程腰背挺直;不是弯腰,是<em>髋部向后</em>;有腰椎问题者从极轻重量开始。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 哑铃卧推 GIF · gifs/db-bench-press.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">3. 哑铃卧推</div>
+          <div class="move-target">目标 · 胸部 + 三头肌 + 前肩</div>
+          <ul class="move-points">
+            <li>仰卧于训练凳,双脚踩稳地面</li>
+            <li>双手持哑铃,起始位置略高于胸部</li>
+            <li>下放至胸部两侧、肘部约 45 度</li>
+            <li>推起时哑铃在胸部正上方汇聚(不相碰)</li>
+            <li>保持肩胛骨夹紧、贴住凳面</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>新手务必使用训练凳;肘部不要完全打直;首次练习从最小重量开始熟悉轨迹。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 龙门架高位下拉 GIF · gifs/lat-pulldown.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">4. 龙门架高位下拉</div>
+          <div class="move-target">目标 · 背阔肌 + 后肩</div>
+          <ul class="move-points">
+            <li>坐于龙门架前,大腿固定于挡板下</li>
+            <li>双手握杠,握距略宽于肩</li>
+            <li>挺胸、肩胛骨下沉</li>
+            <li>下拉时<strong>用背发力</strong>,把横杠拉到锁骨上方</li>
+            <li>缓慢回放,感受背阔肌拉伸</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>身体微微后仰但不要前后晃动;不要用手臂代偿;先找到"用背的感觉"再加重量。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 龙门架坐姿划船 GIF · gifs/seated-row.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">5. 龙门架坐姿划船</div>
+          <div class="move-target">目标 · 中背 + 后肩 + 二头肌</div>
+          <ul class="move-points">
+            <li>坐于龙门架前,双脚抵住踏板,膝盖微屈</li>
+            <li>双手握把手,身体保持直立</li>
+            <li>起始位手臂伸直,肩膀略前送拉伸背部</li>
+            <li>拉至腹部,肘部贴近躯干、肩胛骨向脊柱挤压</li>
+            <li>缓慢回放</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>不要靠惯性后仰拉动;肩胛骨主动启动;这是改善圆肩驼背最有效的动作之一。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 哑铃肩上推举 GIF · gifs/shoulder-press.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">6. 哑铃肩上推举</div>
+          <div class="move-target">目标 · 三角肌 + 三头肌</div>
+          <ul class="move-points">
+            <li>坐姿(背部有靠垫支撑)更安全</li>
+            <li>双手持哑铃,起始位于耳朵两侧、肘部 90 度</li>
+            <li>向上推起,在头顶上方汇聚</li>
+            <li>缓慢下放到耳朵高度</li>
+            <li>核心收紧,腰部不要塌陷</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>有肩部既往伤者从空手开始;肘部不要完全锁死;若感到肩部刺痛立即停止。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 平板支撑 GIF · gifs/plank.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">7. 平板支撑</div>
+          <div class="move-target">目标 · 核心 + 全身稳定性</div>
+          <ul class="move-points">
+            <li>俯卧,前臂贴地,肘部位于肩膀正下方</li>
+            <li>脚尖撑地,身体形成一条直线</li>
+            <li><strong>收紧腹部、夹紧臀部</strong>,腰部不要下塌</li>
+            <li>颈部自然延伸,目视地面</li>
+            <li>从 20 秒开始,逐步增加到 60 秒</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>宁可时间短做对、不要时间长做错;腰下塌时立即停止;膝盖落地版本同样有效。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 哑铃侧平举 GIF · gifs/lateral-raise.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">8. 哑铃侧平举</div>
+          <div class="move-target">目标 · 三角肌中束(肩部宽度)</div>
+          <ul class="move-points">
+            <li>双脚与肩同宽站立,双手各持一只哑铃自然下垂于体侧</li>
+            <li>核心收紧、肩胛骨下沉</li>
+            <li>双臂同时向两侧抬起,直到与地面平行(肘部略微弯曲)</li>
+            <li>顶点保持半秒,缓慢下放</li>
+            <li>下放时不要完全放松,保持肩部张力</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>选轻重量(2–4 公斤起步即可);不要耸肩;不要靠惯性甩起;动作要慢、稳。</div>
+        </div>
+      </div>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 哑铃飞鸟 GIF · gifs/dumbbell-fly.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">9. 哑铃飞鸟</div>
+          <div class="move-target">目标 · 胸大肌(改善胸型 + 开肩)</div>
+          <ul class="move-points">
+            <li>仰卧于训练凳,双脚踩稳地面</li>
+            <li>双手各持一只哑铃,起始位于胸部正上方,掌心相对</li>
+            <li>肘部微屈并保持固定角度</li>
+            <li>双臂沿弧线向两侧打开,感受胸部充分拉伸</li>
+            <li>向上"抱"回起始位置,像抱一棵大树</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>整个过程肘部角度保持不变,不是哑铃卧推;打开幅度以胸部有明显牵拉感为止,不强求大幅度;<em>对改善圆肩、开肩特别有效</em>。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 第八章 ============ -->
+    <section id="ch8">
+      <div class="chapter-num">第 八 章</div>
+      <h2>训练后拉伸</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- 时间线 -->
+          <text x="400" y="35" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#8b3a2f" letter-spacing="3" font-weight="600">完 整 训 练 流 程</text>
+
+          <!-- 流程条 -->
+          <g transform="translate(80, 80)">
+            <!-- 热身 -->
+            <rect x="0" y="0" width="160" height="50" fill="#b9695a" opacity="0.25" stroke="#8b3a2f" stroke-width="1.5" rx="4"/>
+            <text x="80" y="22" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#8b3a2f" font-weight="700">热身</text>
+            <text x="80" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">10 分钟</text>
+
+            <!-- 箭头 -->
+            <path d="M 165 25 L 195 25" stroke="#8a7f73" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <!-- 训练 -->
+            <rect x="200" y="0" width="240" height="50" fill="#5a8a6f" opacity="0.25" stroke="#3d6b54" stroke-width="1.5" rx="4"/>
+            <text x="320" y="22" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#3d6b54" font-weight="700">力量训练</text>
+            <text x="320" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">30-40 分钟</text>
+
+            <!-- 箭头 -->
+            <path d="M 445 25 L 475 25" stroke="#8a7f73" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <!-- 拉伸 -->
+            <rect x="480" y="0" width="160" height="50" fill="#3a6a8b" opacity="0.25" stroke="#1f4a6b" stroke-width="2.5" rx="4"/>
+            <text x="560" y="22" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#1f4a6b" font-weight="700">拉伸</text>
+            <text x="560" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">10 分钟</text>
+          </g>
+
+          <defs>
+            <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#8a7f73"/>
+            </marker>
+          </defs>
+
+          <!-- 强调框 -->
+          <g transform="translate(560, 160)">
+            <rect x="-80" y="0" width="160" height="50" fill="#ffffff" stroke="#8b3a2f" stroke-width="1.5" rx="4" stroke-dasharray="4 3"/>
+            <text x="0" y="22" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8b3a2f" font-weight="700">本章重点</text>
+            <text x="0" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">不能省的最后10分钟</text>
+          </g>
+
+          <!-- 指向拉伸的箭头 -->
+          <path d="M 560 158 Q 590 145 615 138" stroke="#8b3a2f" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+        </svg>
+      </div>
+
+      <p>训练结束后,身体处于"热"的状态——肌肉柔软、血液循环旺盛,这是<strong>静态拉伸的黄金窗口</strong>。10分钟的训练后拉伸,能带来三个明确的好处。</p>
+
+      <h3>为什么训练后必须拉伸</h3>
+
+      <h4>① 帮助肌肉恢复</h4>
+      <p>训练让肌肉处于紧张收缩状态,纤维微观上有撕裂。拉伸让肌肉<strong>重新恢复正常长度</strong>,促进血液流入受损区域,加速代谢废物清除,降低第二天的酸痛感。</p>
+
+      <h4>② 维持柔韧性,对抗僵硬</h4>
+      <p>力量训练会让肌肉变粗、变强,但如果不拉伸,肌肉会越练越紧、活动范围越来越小。<em>柔韧性差,是中老年体态僵硬、动作受限的主因之一</em>。每次训练后拉伸,是维持身体灵活的关键。</p>
+
+      <h4>③ 让心率和神经系统平稳回落</h4>
+      <p>训练让交感神经处于兴奋状态,直接停下休息容易头晕、心慌。拉伸是一个<strong>从兴奋到平静的过渡</strong>,帮助心率、血压平稳回落,睡眠质量也会更好。</p>
+
+      <h3>10分钟拉伸流程</h3>
+      <p>每个拉伸动作保持 <strong>20–30 秒</strong>,做 1–2 组。<em>不追求疼痛</em>——拉到"有明显牵拉感、但不痛"的程度就好。</p>
+
+      <div class="move">
+        <div class="move-gif placeholder"><span class="move-gif-label">[ 拉伸动作 GIF · gifs/stretching.gif ]</span></div>
+        <div class="move-content">
+          <div class="move-name">训练后拉伸 · 8 个动作</div>
+          <div class="move-target">每个动作 20–30 秒,共 10 分钟</div>
+          <ul class="move-points">
+            <li><strong>大腿前侧拉伸</strong>:站立,单手扶墙,另一手抓同侧脚踝向后拉</li>
+            <li><strong>大腿后侧拉伸</strong>:坐姿,单腿伸直,身体前倾够脚尖</li>
+            <li><strong>臀部梨状肌拉伸</strong>:仰卧,一脚踝搭于另一腿膝上,双手抱大腿后侧</li>
+            <li><strong>髋屈肌拉伸</strong>:弓步姿势,后腿膝盖落地,髋部前推</li>
+            <li><strong>胸部拉伸</strong>:站立,手臂弯曲贴墙,身体缓慢转向反方向</li>
+            <li><strong>背部拉伸</strong>:跪姿,双手前伸贴地,臀部坐向脚跟(婴儿式)</li>
+            <li><strong>肩部拉伸</strong>:一手横拉至胸前,另一手在肘部辅助加压</li>
+            <li><strong>颈部拉伸</strong>:头部缓慢侧倾,同侧手轻压加深拉伸</li>
+          </ul>
+          <div class="move-warn"><strong>注意:</strong>拉伸时<em>正常呼吸,不要憋气</em>;不要弹震式拉伸;两侧都要做,时间一致。</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">一句话总结</div>
+        <p>热身让你<strong>能开始训练</strong>,拉伸让你<strong>能持续训练</strong>。两者都不能省,加起来 20 分钟,是训练效果和身体健康的双重保险。</p>
+      </div>
+    </section>
+
+    <!-- ============ 第九章 ============ -->
+    <section id="ch9">
+      <div class="chapter-num">第 九 章</div>
+      <h2>12周入门计划</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- 三阶段台阶图 -->
+          <g transform="translate(80, 50)">
+            <!-- 阶段1 -->
+            <rect x="0" y="120" width="200" height="50" fill="#b9695a" opacity="0.25" stroke="#8b3a2f" stroke-width="1.5" rx="3"/>
+            <text x="100" y="142" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8b3a2f" font-weight="700">第 1-4 周</text>
+            <text x="100" y="160" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">适应期 · 找感觉</text>
+
+            <!-- 阶段2 -->
+            <rect x="220" y="70" width="200" height="100" fill="#b9695a" opacity="0.4" stroke="#8b3a2f" stroke-width="1.5" rx="3"/>
+            <text x="320" y="115" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8b3a2f" font-weight="700">第 5-8 周</text>
+            <text x="320" y="135" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">进步期</text>
+            <text x="320" y="151" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">逐步加重</text>
+
+            <!-- 阶段3 -->
+            <rect x="440" y="20" width="200" height="150" fill="#b9695a" opacity="0.55" stroke="#8b3a2f" stroke-width="1.5" rx="3"/>
+            <text x="540" y="80" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#ffffff" font-weight="700">第 9-12 周</text>
+            <text x="540" y="100" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#ffffff">巩固期</text>
+            <text x="540" y="116" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#ffffff">引入杠铃</text>
+            <text x="540" y="142" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#ffffff">独立训练能力</text>
+
+            <!-- 上升箭头 -->
+            <path d="M 70 200 L 670 0" stroke="#8b3a2f" stroke-width="1.5" fill="none" stroke-dasharray="4 3" opacity="0.5"/>
+          </g>
+
+          <text x="400" y="230" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#8a7f73" letter-spacing="2">每 周 训 练 三 次 · 循 序 渐 进</text>
+        </svg>
+      </div>
+
+      <p>下面这份 12 周的入门计划,专门为零基础的中老年人设计。<strong>循序渐进,绝不冒进</strong>。每周训练 3 次,每次 45–60 分钟(含热身和拉伸)。</p>
+
+      <h3>第一阶段(第 1–4 周)· 适应期</h3>
+      <p>目标:让身体熟悉训练节奏,掌握基本动作模式。<em>重量轻、组数少、休息足</em>。</p>
+
+      <table class="plan-table">
+        <thead>
+          <tr><th>训练日</th><th>动作</th><th>组数 × 次数</th><th>重点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="week">周一<br>下肢</td><td>哑铃高脚杯深蹲<br>哑铃罗马尼亚硬拉<br>平板支撑</td><td>3 × 10<br>3 × 10<br>3 × 20秒</td><td>找到发力感</td></tr>
+          <tr><td class="week">周三<br>上肢推</td><td>哑铃卧推<br>哑铃肩上推举<br>哑铃侧平举<br>平板支撑</td><td>3 × 10<br>3 × 10<br>3 × 12<br>3 × 20秒</td><td>动作慢、稳</td></tr>
+          <tr><td class="week">周五<br>上肢拉</td><td>龙门架高位下拉<br>龙门架坐姿划船<br>哑铃飞鸟<br>死虫式</td><td>3 × 10<br>3 × 10<br>3 × 12<br>3 × 10(每边)</td><td>用背发力</td></tr>
+        </tbody>
+      </table>
+
+      <h3>第二阶段(第 5–8 周)· 进步期</h3>
+      <p>目标:动作熟练后逐步增加重量。<em>每周可增加 1–2.5 公斤</em>,以"能完成动作但最后两次有难度"为基准。</p>
+
+      <table class="plan-table">
+        <thead>
+          <tr><th>训练日</th><th>动作</th><th>组数 × 次数</th><th>重点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="week">周一<br>下肢</td><td>哑铃高脚杯深蹲<br>哑铃罗马尼亚硬拉<br>弓步走<br>平板支撑</td><td>4 × 10<br>4 × 10<br>3 × 8(每边)<br>3 × 30秒</td><td>循序加重</td></tr>
+          <tr><td class="week">周三<br>上肢推 + 肩</td><td>哑铃卧推<br>哑铃肩上推举<br>哑铃侧平举<br>龙门架夹胸</td><td>4 × 10<br>4 × 8<br>3 × 12<br>3 × 12</td><td>组间休息90秒</td></tr>
+          <tr><td class="week">周五<br>上肢拉 + 核心</td><td>龙门架高位下拉<br>龙门架坐姿划船<br>哑铃飞鸟<br>死虫 + 鸟狗</td><td>4 × 10<br>4 × 10<br>3 × 12<br>3 × 10(每边)</td><td>挺胸沉肩</td></tr>
+        </tbody>
+      </table>
+
+      <h3>第三阶段(第 9–12 周)· 巩固期</h3>
+      <p>目标:动作稳定后引入杠铃。<em>这一阶段开始可以尝试杠铃深蹲、杠铃硬拉、杠铃卧推</em>,但务必从空杆开始,确认动作再加重量。</p>
+
+      <table class="plan-table">
+        <thead>
+          <tr><th>训练日</th><th>动作</th><th>组数 × 次数</th><th>重点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="week">周一<br>下肢</td><td>杠铃深蹲(空杆开始)<br>哑铃罗马尼亚硬拉<br>弓步走<br>平板支撑</td><td>4 × 8<br>4 × 10<br>3 × 10(每边)<br>3 × 45秒</td><td>必须有保护架</td></tr>
+          <tr><td class="week">周三<br>上肢推 + 肩</td><td>杠铃卧推(轻重量)<br>哑铃肩上推举<br>哑铃侧平举<br>龙门架夹胸</td><td>4 × 8<br>4 × 10<br>4 × 12<br>3 × 12</td><td>有人辅助</td></tr>
+          <tr><td class="week">周五<br>上肢拉 + 核心</td><td>龙门架高位下拉<br>龙门架坐姿划船<br>哑铃飞鸟<br>死虫 + 鸟狗</td><td>4 × 10<br>4 × 10<br>4 × 12<br>3 × 10(每边)</td><td>核心全程收紧</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">12 周之后</div>
+        <p>完成 12 周计划后,你已经具备了独立训练的能力。接下来可以根据兴趣和需求继续调整,但有几个原则始终不变:<strong>动作质量 > 重量;循序渐进 > 急于求成;长期坚持 > 短期猛练</strong>。</p>
+      </div>
+    </section>
+
+    <!-- ============ 第十章 ============ -->
+    <section id="ch10">
+      <div class="chapter-num">第 十 章</div>
+      <h2>吃什么</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- 三大营养素 -->
+          <g transform="translate(120, 60)">
+            <!-- 蛋白质 -->
+            <circle cx="80" cy="60" r="55" fill="#8b3a2f" opacity="0.15" stroke="#8b3a2f" stroke-width="2"/>
+            <text x="80" y="50" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#8b3a2f" font-weight="700">蛋白质</text>
+            <text x="80" y="68" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">肌肉的原料</text>
+            <text x="80" y="84" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#8b3a2f" font-weight="700">1.2-1.6 g/kg</text>
+
+            <!-- 钙 -->
+            <circle cx="280" cy="60" r="55" fill="#5a8a6f" opacity="0.2" stroke="#3d6b54" stroke-width="2"/>
+            <text x="280" y="50" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#3d6b54" font-weight="700">钙</text>
+            <text x="280" y="68" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">骨骼的建材</text>
+            <text x="280" y="84" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#3d6b54" font-weight="700">1000-1200 mg</text>
+
+            <!-- 维D -->
+            <circle cx="480" cy="60" r="55" fill="#d4a574" opacity="0.3" stroke="#a87a4b" stroke-width="2"/>
+            <text x="480" y="50" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#a87a4b" font-weight="700">维生素D</text>
+            <text x="480" y="68" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#5a514a">钙的搬运工</text>
+            <text x="480" y="84" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="13" fill="#a87a4b" font-weight="700">800-1000 IU</text>
+
+            <!-- 连接线 -->
+            <line x1="135" y1="60" x2="225" y2="60" stroke="#8a7f73" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="335" y1="60" x2="425" y2="60" stroke="#8a7f73" stroke-width="1" stroke-dasharray="3 3"/>
+          </g>
+
+          <text x="400" y="220" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#8a7f73" letter-spacing="2">三 大 关 键 营 养 素 · 每 日 推 荐 摄 入</text>
+        </svg>
+      </div>
+
+      <p>训练只是一半,营养是另一半。中老年人的饮食重点和年轻人完全不同——<strong>蛋白质、钙、维生素 D</strong>是三个最关键的营养素。</p>
+
+      <h3>先澄清一个常见误区:吃肉 ≠ 长胖</h3>
+      <p>很多中老年人觉得"想保持体重就少吃肉",这个观念<strong>是错的</strong>,而且对中老年人尤其有害。</p>
+      <p>真正让人长胖的,是<em>过量的精米精面、含糖饮料、油炸食物、糕点甜食</em>这些精制碳水和高油高糖食物——它们热量高、饱腹感差、还容易让血糖飙升后转化为脂肪储存。</p>
+      <p>而瘦肉、鸡蛋、鱼虾、豆制品这些<strong>优质蛋白</strong>恰恰相反——它们饱腹感强(吃完不容易饿)、热效应高(消化本身就要消耗很多热量)、最关键是<strong>提供肌肉合成所需的原料</strong>。研究显示,高蛋白饮食的人,在同等热量下反而更容易减脂保肌。</p>
+      <div class="callout">
+        <div class="callout-title">一句话记住</div>
+        <p>不吃肉,丢的是肌肉;少碰精米精面糖油,丢的才是脂肪。<strong>54岁之后,蛋白质吃不够,比吃多了危险得多</strong>。</p>
+      </div>
+
+      <h3>蛋白质 · 肌肉的原料</h3>
+      <p>中老年人对蛋白质的需求<em>反而比年轻人高</em>,因为身体合成肌肉的效率下降。建议每天每公斤体重摄入 <span class="stat">1.2–1.6 克</span> 蛋白质。一个 60 公斤的人,每天需要 72–96 克蛋白质。</p>
+      <p><strong>家常蛋白质来源</strong>:</p>
+      <ul>
+        <li>鸡蛋:每天 1–2 个,简单又便宜</li>
+        <li>鸡胸肉、瘦牛肉、鱼肉:每餐一掌心大小</li>
+        <li>豆腐、豆浆、毛豆:植物蛋白的好来源</li>
+        <li>牛奶、酸奶:每天 200–300 毫升</li>
+        <li>训练后 1 小时内补充一份蛋白质,效果最好</li>
+      </ul>
+
+      <h3>钙 · 骨骼的建材</h3>
+      <p>中老年女性每天需要约 <span class="stat">1000–1200 毫克</span> 钙。光靠补钙片不够,关键是<strong>从食物中持续摄入</strong>。</p>
+      <p><strong>家常钙来源</strong>:</p>
+      <ul>
+        <li>牛奶、酸奶、奶酪</li>
+        <li>豆腐、豆干(选用石膏或卤水点的传统豆腐,钙含量更高)</li>
+        <li>深绿色蔬菜:芥蓝、菠菜、油菜、西兰花</li>
+        <li>带骨小鱼(如沙丁鱼)、虾皮</li>
+        <li>芝麻酱:钙含量惊人,可以拌菜或做调料</li>
+      </ul>
+
+      <h3>维生素 D · 钙的搬运工</h3>
+      <p>没有维生素 D,吃再多钙也吸收不了。中老年人维生素 D 缺乏非常普遍。</p>
+      <ul>
+        <li><strong>晒太阳</strong>:每天阳光下散步 15–20 分钟,手臂或脸暴露即可</li>
+        <li><strong>食物</strong>:三文鱼、沙丁鱼、蛋黄、强化牛奶</li>
+        <li><strong>补充剂</strong>:北方冬天日照少时,可考虑每天 800–1000 IU 维生素 D 补充剂(建议先验血确认水平)</li>
+      </ul>
+
+      <h3>训练后快碳 · 一根香蕉的妙用</h3>
+      <p>除了蛋白质、钙、维生素 D 这三大营养素之外,中老年训练者还有一个<strong>非常容易被忽视</strong>的补充窗口——训练后的"快碳"补充。</p>
+      <p>力量训练会大量消耗肌糖原(肌肉里储存的"快速能量")。训练后 30 分钟内,身体处于"<em>糖原合成窗口</em>",这时补充一份快速吸收的碳水,能够:</p>
+      <ul>
+        <li><strong>快速恢复肌糖原</strong>,避免后续疲劳和头晕</li>
+        <li><strong>稳定血糖</strong>,防止训练后的低血糖反应</li>
+        <li><strong>促进蛋白质吸收</strong>,与蛋白质一起吃效果更好</li>
+        <li><strong>减少肌肉分解</strong>,保护训练成果</li>
+      </ul>
+      <p><strong>最简单的方案:训练后吃一根香蕉</strong>。香蕉含有快速吸收的果糖、葡萄糖,还有钾(防止肌肉抽筋)、维生素 B6,完美适合这个时机。</p>
+      <p>其他可选的快碳来源:</p>
+      <ul>
+        <li>一根香蕉(最方便)</li>
+        <li>一小碗白米饭或一小块红薯</li>
+        <li>一杯无糖酸奶 + 一勺蜂蜜</li>
+        <li>一个苹果 + 一杯牛奶</li>
+      </ul>
+      <div class="callout">
+        <div class="callout-title">黄金组合</div>
+        <p><strong>训练后 30 分钟内:一根香蕉 + 一个鸡蛋(或一杯牛奶/酸奶)</strong>。蛋白质 + 快碳的组合,是中老年训练者最简单、最有效的营养补充方案。</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">饮食原则,简单一句话</div>
+        <p>每餐有蛋白(肉蛋奶豆),每天有奶有豆,每周有鱼,每天晒太阳。<strong>不需要极端节食、不需要昂贵补剂</strong>——家常饮食做对了,就是最好的营养。</p>
+      </div>
+    </section>
+
+    <!-- ============ 第十一章 ============ -->
+    <section id="ch11">
+      <div class="chapter-num">第 十 一 章</div>
+      <h2>常见问题</h2>
+
+      <div class="chapter-illust">
+        <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- 问号装饰 -->
+          <text x="150" y="120" font-family="Noto Serif SC, serif" font-size="100" fill="#8b3a2f" opacity="0.15" font-weight="700">?</text>
+          <text x="650" y="140" font-family="Noto Serif SC, serif" font-size="120" fill="#8b3a2f" opacity="0.1" font-weight="700">?</text>
+          <text x="450" y="100" font-family="Noto Serif SC, serif" font-size="60" fill="#8b3a2f" opacity="0.15" font-weight="700">?</text>
+
+          <!-- 中心文字 -->
+          <text x="400" y="95" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="22" fill="#2a2620" font-weight="700">十 个 常 见 问 题</text>
+          <text x="400" y="125" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="13" fill="#8a7f73" letter-spacing="2">把疑问说清楚,才能安心训练</text>
+          <line x1="350" y1="145" x2="450" y2="145" stroke="#8b3a2f" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">练完肌肉酸痛,要不要继续练?</div>
+        <div class="qa-a">轻度酸痛(走路爬楼有点不舒服)可以继续训练,做不同部位即可。重度酸痛(影响日常生活)就多休息一天。<strong>酸痛是肌肉适应训练的正常反应,通常 2–4 周后会大幅减轻</strong>。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">有高血压,可以做力量训练吗?</div>
+        <div class="qa-a">可以,但要遵守几个原则:训练前血压控制在正常范围;<em>避免大重量低次数</em>(如 5 次以下),选择中等重量 10–15 次;全程<strong>不憋气</strong>(用力时呼气);避免头部低于心脏的动作。建议训练前先咨询医生。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">膝盖不太好,能做深蹲吗?</div>
+        <div class="qa-a">大多数情况下可以,而且<strong>正确的深蹲反而能改善膝盖</strong>,因为强壮的腿部肌肉能减轻膝盖压力。但要注意:从徒手深蹲开始;蹲到舒适深度即可,不强求大腿与地面平行;膝盖跟随脚尖方向、不内扣。如果有明确的关节损伤诊断,先咨询医生或康复师。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">更年期,适合开始练吗?</div>
+        <div class="qa-a">非常适合。<strong>力量训练对更年期症状有显著改善作用</strong>——改善睡眠、稳定情绪、减少潮热频率、保护骨密度。这个时期训练的回报率,可能是人生中最高的。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">练的时候突然头晕,怎么办?</div>
+        <div class="qa-a">立刻停下,坐下或半蹲下来,让头部高度低于站立位置。常见原因有几个:<strong>体位性低血压</strong>(从蹲到站太快)、<strong>憋气导致脑供血不足</strong>(大重量时常见)、<strong>低血糖</strong>(空腹训练或吃太少)、<strong>训练强度突然过大</strong>。处理方式:坐下休息 5–10 分钟、补充水和一点糖分(果汁、香蕉)、缓过来后<em>当天不再继续训练</em>。如果头晕反复出现或伴随胸闷、心悸,应及时就医检查。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">练的时候低血糖了怎么办?</div>
+        <div class="qa-a">低血糖的典型表现:<strong>心慌、手抖、出冷汗、头晕、视线模糊、突然没力气</strong>。一旦出现,立即停止训练。处理步骤:<strong>① 坐下休息;② 立刻吃一点快速吸收的糖</strong>——半根香蕉、一杯果汁、几块糖、一勺蜂蜜都可以;<strong>③ 等 15 分钟,如果还不舒服再补一份;④ 当天不再训练</strong>。预防方法:训练前 1–2 小时吃点东西(一片面包 + 一个鸡蛋、或一根香蕉 + 一杯酸奶),<em>绝对不要空腹训练</em>。如果反复发生低血糖,需就医排查胰岛素或代谢问题。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">多久能看到效果?</div>
+        <div class="qa-a">力量提升:<strong>2–3 周</strong>就能感觉到(神经适应);形体变化:<strong>6–8 周</strong>开始出现;骨密度改善:<strong>6–12 个月</strong>能在体检中体现。<em>不要追求短期视觉效果,这是一个长期工程</em>。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">训练当天可以洗澡吗?</div>
+        <div class="qa-a">可以,但建议<strong>训练后 30 分钟再洗</strong>,等心率和体温平稳。<em>水温温和即可,不要太烫太冷</em>。冬天训练后避免立即吹冷风。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">什么时候不该训练?</div>
+        <div class="qa-a">几个明确信号:发烧、感冒严重时;前一晚严重失眠;血压明显异常;关节有未明确诊断的剧痛;空腹超过 4 小时。<strong>训练日不是必须打卡——身体优先,训练是长跑</strong>。</div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-q">练了一段时间,觉得遇到瓶颈怎么办?</div>
+        <div class="qa-a">中老年人进步是阶梯式的,不是直线式的。<em>瓶颈期很正常</em>,通常持续 2–4 周。这时候可以:换动作变化刺激;调整训练频率;检查睡眠和饮食;给身体多一点恢复时间。<strong>耐心,是这个项目最重要的素质</strong>。</div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+      <p>本指南内容基于公开的运动科学研究整理,仅供参考。</p>
+      <p>如有具体的健康问题或慢性病史,请咨询专业医生或运动康复师后再开始训练。</p>
+      <p style="margin-top: 16px; font-family: var(--serif); color: var(--accent);">愿你 70 岁,依然走得动山,拎得动行李,过得了机场。</p>
+    </footer>
+
+  </main>
+
+</div>
+
+<script>
+  // 移动端菜单切换
+  function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.querySelector('.overlay');
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+  }
+
+  // 点击目录链接后关闭移动端菜单
+  document.querySelectorAll('.toc a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        document.getElementById('sidebar').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+      }
+    });
+  });
+
+  // 滚动时高亮当前章节
+  const sections = document.querySelectorAll('section[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  function highlightCurrentSection() {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', highlightCurrentSection);
+  window.addEventListener('load', highlightCurrentSection);
+</script>
+
+</body>
+</html>
